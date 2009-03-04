@@ -132,7 +132,8 @@ public class TableDB {
                 stat.setInt(5, table.getFloor());
                 stat.setInt(6, table.getSeats());
                 stat.setString(7, table.getType()+"");
-                if(table.getServer() != null)
+                System.out.println(table.getServer());
+                if(table.getServer() == null)
                 {
                     stat.setInt(8, 0);
                 }

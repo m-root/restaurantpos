@@ -471,7 +471,7 @@ public class Restaurant extends javax.swing.JFrame {
             while (breaker==false)
             {
                 input = (String)JOptionPane.showInternalInputDialog(c, message,"Input",
-                        messageNum,null,null,compArray.size()-2);
+                        messageNum,null,null,compArray.size()-2+otherFloor.size());
 
                 try {
                     if (input!=null)
@@ -815,7 +815,7 @@ public void loadTables()
             {
                 
                 input = (String)JOptionPane.showInternalInputDialog(c, message,"Input",
-                        messageNum,null,null,compArray.size()-2);
+                        messageNum,null,null,compArray.size()-2+otherFloor.size());
 
                 try {
                     if (input!=null)
