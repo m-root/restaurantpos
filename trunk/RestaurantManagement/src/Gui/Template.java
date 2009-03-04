@@ -83,7 +83,7 @@ public class Template extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         btnHelp = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
@@ -99,7 +99,7 @@ public class Template extends javax.swing.JFrame {
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/home.png"))); // NOI18N
         btnHome.setFocusable(false);
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tahoma", 0, 48));
         lblTitle.setText("Screen Title");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
