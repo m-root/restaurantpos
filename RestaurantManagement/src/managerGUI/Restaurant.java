@@ -438,15 +438,15 @@ public class Restaurant extends javax.swing.JFrame {
                 if (tempLabel.getIcon().toString().contains("table"))
                 {
                     toSave.add(new Table(Integer.parseInt(((JLabel)tempLabel.getComponent(0)).getText()), 
-                            'A', Integer.parseInt(((JLabel)tempLabel.getComponent(1)).getText()), tempLabel.getX(), tempLabel.getY(), 'T', null, currFloor));
+                            'I', Integer.parseInt(((JLabel)tempLabel.getComponent(1)).getText()), tempLabel.getX(), tempLabel.getY(), 'T', null, currFloor));
                 } else if (tempLabel.getIcon().toString().contains("booth"))
                 {
                     toSave.add(new Table(Integer.parseInt(((JLabel)tempLabel.getComponent(0)).getText()),
-                            'A', Integer.parseInt(((JLabel)tempLabel.getComponent(1)).getText()), tempLabel.getX(), tempLabel.getY(), 'B', null, currFloor));
+                            'I', Integer.parseInt(((JLabel)tempLabel.getComponent(1)).getText()), tempLabel.getX(), tempLabel.getY(), 'B', null, currFloor));
                 } else if (tempLabel.getIcon().toString().contains("bar"))
                 {
                     toSave.add(new Table(Integer.parseInt(((JLabel)tempLabel.getComponent(0)).getText()),
-                            'A', Integer.parseInt(((JLabel)tempLabel.getComponent(1)).getText()), tempLabel.getX(), tempLabel.getY(), 'R', null, currFloor));
+                            'I', Integer.parseInt(((JLabel)tempLabel.getComponent(1)).getText()), tempLabel.getX(), tempLabel.getY(), 'R', null, currFloor));
                 }
 
             }

@@ -28,6 +28,8 @@ import persistence.TableBroker;
  */
 public class TableSelection extends javax.swing.JFrame {
 
+    //TODO: Inactive (Gray), Available (Green), Seated (Yellow), Active (Blue), Bussing (Purple)
+
     int currFloor;
     Dimension dim = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
     int screenWidth = (int)dim.getWidth();
