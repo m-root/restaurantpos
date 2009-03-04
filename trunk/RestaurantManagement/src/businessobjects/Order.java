@@ -23,16 +23,6 @@ public class Order {
     public Order() {
     }
 
-    /**
-     *
-     * @param id
-     * @param table
-     * @param seat
-     * @param paymentMethod
-     * @param paid
-     * @param paymentAmount
-     * @param items
-     */
     public Order(int id, Table table, int seat, char paymentMethod, boolean paid, double paymentAmount, ArrayList<OrderItem> items) {
         this.id = id;
         this.table = table;

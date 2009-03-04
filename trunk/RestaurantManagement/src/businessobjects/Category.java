@@ -16,12 +16,7 @@ public class Category {
 
     public Category() {
     }
-    /**
-     *
-     * @param id
-     * @param name
-     * @param parent
-     */
+
     public Category(int id, String name, Category parent) {
         this.id = id;
         this.name = name;

@@ -19,12 +19,6 @@ public class Shift {
     public Shift() {
     }
 
-    /**
-     *
-     * @param id
-     * @param in
-     * @param employee
-     */
     public Shift(int id, Calendar in, Employee employee) {
         this.id = id;
         this.in = in;

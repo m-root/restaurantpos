@@ -24,17 +24,6 @@ public class Employee {
     public Employee() {
     }
 
-    /**
-     *
-     * @param number
-     * @param role
-     * @param fName
-     * @param lName
-     * @param phone
-     * @param sin
-     * @param address
-     * @param wage
-     */
     public Employee(int number, char role, String fName, String lName, String phone, String sin, String address, double wage) {
         this.number = number;
         this.role = role;

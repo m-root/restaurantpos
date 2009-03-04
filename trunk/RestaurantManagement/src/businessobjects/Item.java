@@ -16,33 +16,27 @@ public class Item {
     private double price;
     private Category parent;
     private String name;
-    private ArrayList<ItemAddon> addons;
+    private double cost;
 
     public Item() {
     }
 
-    /**
-     *
-     * @param id
-     * @param price
-     * @param parent
-     * @param name
-     * @param addons
-     */
-    public Item(int id, double price, Category parent, String name, ArrayList<ItemAddon> addons) {
+    public Item(int id, double price, Category parent, String name, double cost) {
         this.id = id;
         this.price = price;
         this.parent = parent;
         this.name = name;
-        this.addons = addons;
+        this.cost = cost;
     }
 
-    public ArrayList<ItemAddon> getAddons() {
-        return addons;
+    
+
+    public double getCost() {
+        return cost;
     }
 
-    public void setAddons(ArrayList<ItemAddon> addons) {
-        this.addons = addons;
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
     public int getId() {

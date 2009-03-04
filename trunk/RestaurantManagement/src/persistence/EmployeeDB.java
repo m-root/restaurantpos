@@ -1,11 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+
 
 package persistence;
 
 
+import businessobjects.Employee;
 import java.sql.*;
 import businessobjects.*;
 import java.util.ArrayList;
@@ -28,7 +26,7 @@ public class EmployeeDB {
     public void setConnection(){
      try {
 			Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant","root","shadow");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant","root","");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -43,19 +41,18 @@ public class EmployeeDB {
         setConnection();
     }
 
-
     /**
-     * This method take in a Employee object and writes the data to the database
+     * This method takes in a Employee object and writes the data to the database
      * @param Requires a Employee Object
-     * @return Returns true if it the object is save and false if it is not saved
+     * @return Returns true if the object is saved and false if it is not saved
      */
     public boolean save(Object o){
         try {
-            //(int id, char status, int seats, int xloc, int yloc)
             Employee employee = (Employee) o;
+            
             CallableStatement stat = con.prepareCall("call spAddEmployee(?,?,?,?,?,?,?,?);");
-            stmt = con.createStatement();
-            String query = "SELECT count(*) FROM employee WHERE " + employee.getNumber() + " = employeeId;";
+             stmt = con.createStatement();
+            String query = "SELECT count(*) FROM Employee WHERE " + employee.getNumber() + " = employeeId;";
             results = stmt.executeQuery(query);
             if (results.getInt(1) == 0) {
                 stat.setInt(1, employee.getNumber());
@@ -70,13 +67,13 @@ public class EmployeeDB {
                 return true;
             }
             else {
-                query = "UPDATE employee SET  = role = '" + employee.getRole() +
+                query = "UPDATE Employee SET employeeID = '" + employee.getNumber() +
+                                                "', role = '" + employee.getRole() +
                                                 "', fname = '" + employee.getFName() +
                                                 "', lname = '" + employee.getLName() +
                                                 "', phone = '" + employee.getPhone() +
                                                 "', sin = '" + employee.getSin() +
                                                 "', address = '" + employee.getAddress() +
-                                                "', wage = '" + employee.getWage() +
                         "' where employeeId =" + employee.getNumber() + ";";
                 stmt.executeQuery(query);
                 return true;
@@ -89,68 +86,87 @@ public class EmployeeDB {
     }
 
     /**
-     * This method takes in an arraylist of employees to be saved and adds them
-     * to the employee table in the database. Returns
-     * @param ar This is an array list full of employees to be added
-     * @return Returns true if the objects are added and false if any object is not added
+     * This method takes in an arraylist of Employee objects and writes the data to the database
+     * @param Requires an arraylist of Employee Objects
+     * @return Returns true if the objects are saved and false if they are not saved
      */
     public boolean saveAll(ArrayList ar){
-        for(int i = 0; i < ar.size(); i++){
-            Employee employee = (Employee) ar.get(i);
-            try {
-                
-                CallableStatement stat = con.prepareCall("call spAddEmployee(?,?,?,?,?,?,?,?);");
+        try {
+            if (ar.size()>0)
+            {
                 stmt = con.createStatement();
-                String query = "SELECT count(*) FROM employee WHERE " + employee.getNumber() + " = employeeId;";
-                results = stmt.executeQuery(query);
-                if (results.getInt(1) == 0) {
-                    stat.setInt(1, employee.getNumber());
-                    stat.setString(2, "" + employee.getRole());
-                    stat.setString(3, employee.getFName());
-                    stat.setString(4, employee.getLName());
-                    stat.setString(5, employee.getPhone());
-                    stat.setString(6, employee.getSin());
-                    stat.setString(7, employee.getAddress());
-                    stat.setDouble(8, employee.getWage());
-                    stat.execute();
+                stmt.execute("DELETE * FROM Employee;");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeDB.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-                }
-                else {
-                    query = "UPDATE employee SET  = role = '" + employee.getRole() +
-                                                    "', fname = '" + employee.getFName() +
-                                                    "', lname = '" + employee.getLName() +
-                                                    "', phone = '" + employee.getPhone() +
-                                                    "', sin = '" + employee.getSin() +
-                                                    "', address = '" + employee.getAddress() +
-                                                    "', wage = '" + employee.getWage() +
-                            "' where employeeId =" + employee.getNumber() + ";";
-                    stmt.executeQuery(query);
+        for(int i = 0; i < ar.size(); i++){
+            try {
+            Employee employee = (Employee) ar.get(i);
+            //(int id, char status, int seats, int xloc, int yloc)
 
-                }
+            //stmt = con.createStatement();
+            String query = "SELECT count(*) FROM Employee WHERE " + employee.getNumber() + " = employeeId;";
+            results = stmt.executeQuery(query);
+
+            int count = 0;
+            while(results.next())
+            {
+               count = results.getInt(1);
+            }
+
+
+            if (count == 0) {
+                CallableStatement stat = con.prepareCall("call spAddEmployee(?,?,?,?,?,?,?,?);");
+                stat.setInt(1, employee.getNumber());
+                stat.setString(2, "" + employee.getRole());
+                stat.setString(3, employee.getFName());
+                stat.setString(4, employee.getLName());
+                stat.setString(5, employee.getPhone());
+                stat.setString(6, employee.getSin());
+                stat.setString(7, employee.getAddress());
+                stat.setDouble(8, employee.getWage());
+                stat.execute();
+
+            }
+            else {
+                query = "UPDATE Employee SET employeeID = '" + employee.getNumber() +
+                                                "', role = '" + employee.getRole() +
+                                                "', fname = '" + employee.getFName() +
+                                                "', lname = '" + employee.getLName() +
+                                                "', phone = '" + employee.getPhone() +
+                                                "', sin = '" + employee.getSin() +
+                                                "', address = '" + employee.getAddress() +
+                        "' where employeeId =" + employee.getNumber() + ";";
+                stmt.executeQuery(query);
+
+            }
 
             } catch (SQLException ex) {
                 Logger.getLogger(EmployeeDB.class.getName()).log(Level.SEVERE, null, ex);
                 return false;
             }
-
         }
         return true;
     }
     /**
      * This method takes in a Employee ID number and returns the employee from the database
      * @param Requires a EmployeeID number (int)
-     * @return Returns a Employee Object
+     * @return returns a Employee Object
      */
     public Employee get(int number){
         try {
             Employee employee = new Employee();
+
+
             stmt = con.createStatement();
-            String query = "SELECT * FROM employee WHERE '" + number + "' = employeeId;";
+            String query = "SELECT * FROM Employee WHERE '" + number + "' = employeeId;";
             results = stmt.executeQuery(query);
 
             while(results.next()){
-                employee = new Employee(results.getInt(1), results.getString(2).charAt(0),results.getString(3), results.getString(4),
-                                    results.getString(5), results.getString(6), results.getString(7), results.getDouble(8));
+                employee = new Employee(results.getInt("employeeID"), results.getString("role").charAt(0),results.getString("fname"), results.getString("lname"),
+                                    results.getString("phone"), results.getString("sin"), results.getString("address"), results.getDouble("wage"));
             }
 
             return employee;
@@ -159,18 +175,21 @@ public class EmployeeDB {
             return null;
         }
     }
-
+    /**
+     * This method is used to retrieve an arraylist of all employees in the database
+     * @return Returns an arraylist full of all employees in the database
+     */
     public ArrayList getAll(){
         try {
             Employee employee = new Employee();
             ArrayList<Employee> ar = new ArrayList<Employee>();
             stmt = con.createStatement();
-            String query = "SELECT * FROM employee;";
+            String query = "SELECT * FROM Employee;";
             results = stmt.executeQuery(query);
 
             while(results.next()){
-                employee = new Employee(results.getInt(1), results.getString(2).charAt(0),results.getString(3), results.getString(4),
-                                    results.getString(5), results.getString(6), results.getString(7), results.getDouble(8));
+                employee = new Employee(results.getInt("employeeID"), results.getString("role").charAt(0),results.getString("fname"), results.getString("lname"),
+                                    results.getString("phone"), results.getString("sin"), results.getString("address"), results.getDouble("wage"));
                 ar.add(employee);
             }
 
@@ -184,7 +203,7 @@ public class EmployeeDB {
     /**
      * This method takes in a Employee ID number and deletes that employee from the database
      * @param Requires a Employee ID number (int)
-     * @return Returns true if it is removed or false if it is not removed
+     * @return Returns true if the employee is removed and false if it is not removed
      */
     public boolean remove(int number){
         try {
@@ -199,5 +218,8 @@ public class EmployeeDB {
 
     }
 
+    
+
 
 }
+
