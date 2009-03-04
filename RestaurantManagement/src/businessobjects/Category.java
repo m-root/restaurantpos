@@ -5,6 +5,8 @@
 
 package businessobjects;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 457226
@@ -13,6 +15,7 @@ public class Category {
     private int id;
     private String name;
     private Category parent;
+    private ArrayList<Item> items;
 
     public Category() {
     }
