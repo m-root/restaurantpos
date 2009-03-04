@@ -4,6 +4,7 @@ package DB;
 
 
 
+import brokers.EmployeeBroker;
 import java.sql.*;
 import businessobjects.*;
 import java.util.ArrayList;
@@ -149,9 +150,13 @@ public class TimeStampDB {
             stmt = con.createStatement();
             String query = "SELECT * FROM TimeStamp WHERE '" + number + "' = timeStampId;";
             results = stmt.executeQuery(query);
-            Calendar calIn = new Calendar(results.get);
             while(results.next()){
-                timeStamp = new TimeStamp(results.getInt("timeStampID"), results.getDate("inTime"), results.getDate("outTime"), results.getInt("FK_employeeId"));
+                timeStamp = new TimeStamp(results.getInt("timeStampID"), results.getDate("inTime"), results.getDate("outTime"), null);
+                if(results.getInt("FK_employeeId") != 0)
+                {
+                    EmployeeBroker eb = EmployeeBroker.getBroker();
+                    timeStamp.setEmployee((Employee) eb.get(results.getInt("FK_employeeId")));
+                }
             }
 
             return timeStamp;
@@ -173,7 +178,12 @@ public class TimeStampDB {
             results = stmt.executeQuery(query);
 
             while(results.next()){
-                timeStamp = new TimeStamp(results.getInt("timeStampID"), results.getDouble("price"), results.getString("name"));
+                timeStamp = new TimeStamp(results.getInt("timeStampID"), results.getDate("inTime"), results.getDate("outTime"), null);
+                if(results.getInt("FK_employeeId") != 0)
+                {
+                    EmployeeBroker eb = EmployeeBroker.getBroker();
+                    timeStamp.setEmployee((Employee) eb.get(results.getInt("FK_employeeId")));
+                }
                 ar.add(timeStamp);
             }
 
