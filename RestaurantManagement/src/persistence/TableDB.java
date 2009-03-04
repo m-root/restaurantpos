@@ -210,12 +210,10 @@ public class TableDB {
                                     results.getInt(5), results.getString("typechar").charAt(0), null, results.getInt("floor"));
                 if(results.getInt("employeeId") != 0)
                 {
-                    String query2 = "SELECT * FROM Employee WHERE '" + results.getInt("employeeId") + "';";
-                    Employee employee = new Employee(results.getInt("employeeID"), results.getString("role").charAt(0),results.getString("fname"), results.getString("lname"),
-                                    results.getString("phone"), results.getString("sin"), results.getString("address"), results.getDouble("wage"));
-                    table.setServer(employee);
-                    ar.add(table);
+                    EmployeeBroker eb = EmployeeBroker.getBroker();
+                    table.setServer((Employee) eb.get(results.getInt("employeeId")));
                 }
+                ar.add(table);
             }
 
             return ar;
