@@ -55,6 +55,7 @@ CREATE TABLE `item` (
   `price` double NOT NULL,
   `categoryId` int(11) default NULL,
   `name` varchar(15) NOT NULL,
+  `cost` double default NULL,
   PRIMARY KEY  (`itemId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -68,11 +69,23 @@ CREATE TABLE `itemaddon` (
   `itemAddonId` int(11) NOT NULL auto_increment,
   `name` varchar(15) NOT NULL,
   `price` double NOT NULL,
-  `itemId` int(11) NOT NULL,
   PRIMARY KEY  (`itemAddonId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 /*Data for the table `itemaddon` */
+
+/*Table structure for table `itemmod` */
+
+DROP TABLE IF EXISTS `itemmod`;
+
+CREATE TABLE `itemmod` (
+  `itemModId` bigint(11) NOT NULL auto_increment,
+  `itemAddonId` bigint(11) NOT NULL,
+  `OrderItemId` bigint(11) NOT NULL,
+  PRIMARY KEY  (`itemModId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `itemmod` */
 
 /*Table structure for table `orderitem` */
 
@@ -81,7 +94,7 @@ DROP TABLE IF EXISTS `orderitem`;
 CREATE TABLE `orderitem` (
   `orderItemId` int(11) NOT NULL auto_increment,
   `itemId` int(11) NOT NULL,
-  `cost` double NOT NULL,
+  `price` double NOT NULL,
   `seat` int(11) NOT NULL,
   `orderId` int(11) NOT NULL,
   PRIMARY KEY  (`orderItemId`)
@@ -117,6 +130,7 @@ CREATE TABLE `restable` (
   `yloc` int(11) NOT NULL,
   `floor` tinyint(1) default NULL,
   `seats` tinyint(2) default NULL,
+  `typechar` char(1) default NULL,
   PRIMARY KEY  (`tableId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -128,24 +142,27 @@ DROP TABLE IF EXISTS `timestamp`;
 
 CREATE TABLE `timestamp` (
   `timeStampId` int(11) NOT NULL auto_increment,
-  `in` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `out` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `inTime` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `outTime` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `FK_employeeId` int(11) default NULL,
   PRIMARY KEY  (`timeStampId`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 /*Data for the table `timestamp` */
 
-/* Procedure structure for procedure `addTable` */
+insert  into `timestamp`(`timeStampId`,`inTime`,`outTime`,`FK_employeeId`) values (1,'2009-02-23 14:24:17','2009-02-23 14:24:17',1),(2,'2009-02-23 14:24:58','2009-02-23 14:24:58',1),(3,'2009-02-23 14:27:19','2009-02-23 14:27:27',1);
 
-/*!50003 DROP PROCEDURE IF EXISTS  `addTable` */;
+/* Procedure structure for procedure `spAddEmployee` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spAddEmployee` */;
 
 DELIMITER $$
 
-/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `addTable`(IN id int(11), IN status char(1), IN xloc int(11), IN yloc int(11),
-									IN floor tinyint(1),IN seats tinyint(2))
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spAddEmployee`(IN ID int(11), IN role char(1), IN fname varchar(20), IN lname varchar(20),
+								IN phone char(10), IN address varchar(40), IN sin CHAR(9), IN wage double)
 BEGIN
-	INSERT INTO restable (tableid, status, xloc, yloc, floor, seats)
-	VALUES(id, status, xloc, yloc, floor, seats);
+	INSERT INTO employee (employeeId, role, fname, lname, phone, address, sin, wage)
+	VALUES(ID, role, fname, lname, phone, address, sin, wage);
     END */$$
 DELIMITER ;
 
@@ -156,10 +173,10 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spAddTable`(IN id int(11), IN status char(1), IN xloc int(11), IN yloc int(11),
-									IN floor tinyint(1),IN seats tinyint(2))
+									IN floor tinyint(1),IN seats tinyint(2), In employeeId int(11))
 BEGIN
-	INSERT INTO restable (tableid, status, xloc, yloc, floor, seats)
-	VALUES(id, status, xloc, yloc, floor, seats);
+	INSERT INTO restable (tableid, status, xloc, yloc, floor, seats, employeeId)
+	VALUES(id, status, xloc, yloc, floor, seats, employeeId);
     END */$$
 DELIMITER ;
 
@@ -187,6 +204,41 @@ BEGIN
 	DELETE FROM resTable
 	WHERE tableId = delID;
 END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spLogIn` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spLogIn` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spLogIn`(IN empId int(11))
+BEGIN
+	
+	INSERT INTO timestamp(FK_employeeId)
+	VALUES(empId); 
+    END */$$
+DELIMITER ;
+
+/* Procedure structure for procedure `spLogOut` */
+
+/*!50003 DROP PROCEDURE IF EXISTS  `spLogOut` */;
+
+DELIMITER $$
+
+/*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spLogOut`(IN empId int(11))
+BEGIN
+	set @out_time = now();
+	set @timeId = -1;
+	
+	SELECT 	max(timeStampId) INTO @timeId
+	FROM	timestamp
+	WHERE 	FK_employeeId = empId;
+	UPDATE 	timestamp
+	SET	outTime = @out_time,
+		in_time = in_time
+	WHERE	timeStampId = @timeId;
+    END */$$
 DELIMITER ;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
