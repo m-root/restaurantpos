@@ -5,7 +5,7 @@
 
 package businessobjects;
 
-import java.util.Calendar;
+import java.util.Date;
 import java.util.Date;
 
 /**
@@ -14,14 +14,14 @@ import java.util.Date;
  */
 public class TimeStamp {
     private int id;
-    private Calendar in;
-    private Calendar out;
+    private Date in;
+    private Date out;
     private Employee employee;
     private Date d;
     public TimeStamp() {
     }
 
-    public TimeStamp(int id, Calendar in, Calendar out, Employee employee) {
+    public TimeStamp(int id, Date in, Date out, Employee employee) {
         this.id = id;
         this.in = in;
         this.out = out;
@@ -44,19 +44,19 @@ public class TimeStamp {
         this.id = id;
     }
 
-    public Calendar getIn() {
+    public Date getIn() {
         return in;
     }
 
-    public void setIn(Calendar in) {
+    public void setIn(Date in) {
         this.in = in;
     }
 
-    public Calendar getOut() {
+    public Date getOut() {
         return out;
     }
 
-    public void setOut(Calendar out) {
+    public void setOut(Date out) {
         this.out = out;
     }
 
