@@ -12,13 +12,17 @@
 package loginGUI;
 
 import Gui.*;
+import businessobjects.Employee;
 import businessobjects.Table;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import persistence.EmployeeBroker;
 import persistence.TableBroker;
+import persistence.TimeStampBroker;
 
 /**
  *
@@ -328,7 +332,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        jPanel3.setBounds(230, 130, 336, 482);
+        jPanel3.setBounds(230, 130, -1, -1);
         tableBack.add(jPanel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -479,28 +483,28 @@ public class Login extends javax.swing.JFrame {
     
     public void login()
     {
-        //EmployeeBroker eb = EmployeeBroker.getBroker();
+        EmployeeBroker eb = EmployeeBroker.getBroker();
         String id = pin;
         int idNum = Integer.parseInt(id);
-        /*if(eb.login(idNum))
+        if(eb.get(idNum)!=null)
         {
-            Employee emp = eb.get(id);
-            String type = emp.getType();
+            Employee emp = (Employee)eb.get(idNum);
+            char role = emp.getRole();
 
-            TimeStampBroker tsb = new TimeStampBroker();
+            TimeStampBroker tsb = TimeStampBroker.getBroker();
             tsb.save(emp);
 
-            if(type="manager")
+            if(role == 'M')
             {
-                ManagerScreen ms = new ManagerScreen();
-                ms.setVisibility(true);
+                //ManagerScreen ms = new ManagerScreen();
+                //ms.setVisibility(true);
             }
 
         }
         else
         {
             JOptionPane.showInternalMessageDialog(this, "Not a valid id");
-        }*/
+        }
 
         a = new ArrayList();
         pin = "";
