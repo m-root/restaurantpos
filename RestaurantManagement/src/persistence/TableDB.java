@@ -1,10 +1,9 @@
+
+
 package persistence;
 
 
-
-
-
-
+import businessobjects.Table;
 import java.sql.*;
 import businessobjects.*;
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class TableDB {
         try {
             Table table = (Table) o;
             //(int id, char status, int seats, int xloc, int yloc)
-            CallableStatement stat = con.prepareCall("call spAddTable(?,?,?,?,?,?);");
+            CallableStatement stat = con.prepareCall("call spAddTable(?,?,?,?,?,?,?);");
              stmt = con.createStatement();
             String query = "SELECT count(*) FROM resTable WHERE " + table.getId() + " = tableId;";
             results = stmt.executeQuery(query);
@@ -60,22 +59,32 @@ public class TableDB {
                 stat.setString(2, "" + table.getStatus());
                 stat.setInt(3, table.getXLoc());
                 stat.setInt(4, table.getYLoc());
-                stat.setInt(5, table.getSeats());
-                stat.setInt(6, table.getFloor());
+                stat.setInt(5, table.getFloor());
+                stat.setInt(6, table.getSeats());
+                stat.setString(7, table.getType()+"");
+                if(table.getServer() != null)
+                {
+                    stat.setInt(8, 0);
+                }
+                else
+                {
+                    stat.setInt(8, table.getServer().getNumber());
+                }
                 stat.execute();
                 return true;
             }
             else {
-                query = "UPDATE resTable SET status = '" + table.getStatus() +
-                                                "', xloc = " + table.getXLoc() +
-                                                ", yloc = " + table.getYLoc() +
-                                                ", seats = " + table.getSeats() +
-                                                ", floor = " + table.getFloor() +
-                        " where tableId =" + table.getId() + ";";
+                 query = "UPDATE resTable SET status = '" + table.getStatus() +
+                                                "', xloc = '" + table.getXLoc() +
+                                                "', yloc = '" + table.getYLoc() +
+                                                "', seats = '" + table.getSeats() +
+                                                "', typechar = '" + table.getType() +
+                                                "', floor = '" + table.getFloor() +
+                        "' where tableId =" + table.getId() + ";";
                 stmt.executeQuery(query);
                 return true;
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(TableDB.class.getName()).log(Level.SEVERE, null, ex);
             return false;
@@ -97,25 +106,25 @@ public class TableDB {
         } catch (SQLException ex) {
             Logger.getLogger(TableDB.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         for(int i = 0; i < ar.size(); i++){
             try {
             Table table = (Table) ar.get(i);
             //(int id, char status, int seats, int xloc, int yloc)
-            
+
             //stmt = con.createStatement();
             String query = "SELECT count(*) FROM resTable WHERE " + table.getId() + " = tableId;";
             results = stmt.executeQuery(query);
-            
+
             int count = 0;
             while(results.next())
             {
-               count = results.getInt(1); 
+               count = results.getInt(1);
             }
 
 
             if (count == 0) {
-                CallableStatement stat = con.prepareCall("call spAddTable(?,?,?,?,?,?,?);");
+                CallableStatement stat = con.prepareCall("call spAddTable(?,?,?,?,?,?,?,?);");
                 stat.setInt(1, table.getId());
                 stat.setString(2, "" + table.getStatus());
                 stat.setInt(3, table.getXLoc());
@@ -123,17 +132,25 @@ public class TableDB {
                 stat.setInt(5, table.getFloor());
                 stat.setInt(6, table.getSeats());
                 stat.setString(7, table.getType()+"");
+                if(table.getServer() != null)
+                {
+                    stat.setInt(8, 0);
+                }
+                else
+                {
+                    stat.setInt(8, table.getServer().getNumber());
+                }
                 stat.execute();
 
             }
             else {
                 query = "UPDATE resTable SET status = '" + table.getStatus() +
-                                                "', xloc = " + table.getXLoc() +
-                                                ", yloc = " + table.getYLoc() +
-                                                ", seats = " + table.getSeats() +
-                                                ", typechar = '" + table.getType() +
-                                                "', floor = " + table.getFloor() +
-                        " where tableId =" + table.getId() + ";";
+                                                "', xloc = '" + table.getXLoc() +
+                                                "', yloc = '" + table.getYLoc() +
+                                                "', seats = '" + table.getSeats() +
+                                                "', typechar = '" + table.getType() +
+                                                "', floor = '" + table.getFloor() +
+                        "' where tableId =" + table.getId() + ";";
                 stmt.execute(query);
 
             }
@@ -153,7 +170,7 @@ public class TableDB {
     public Table get(int number){
         try {
             Table table = new Table();
-            
+
 
             stmt = con.createStatement();
             String query = "SELECT * FROM resTable WHERE '" + number + "' = tableId;";
@@ -162,6 +179,12 @@ public class TableDB {
             while(results.next()){
                 table = new Table(results.getInt(1), results.getString(2).charAt(0),results.getInt(6), results.getInt(4),
                                     results.getInt(5), results.getString("type").charAt(0), null, results.getInt("floor"));
+
+                    String query2 = "SELECT * FROM Employee WHERE '" + results.getInt("employeeId") + "';";
+                    Employee employee = new Employee(results.getInt("employeeID"), results.getString("role").charAt(0),results.getString("fname"), results.getString("lname"),
+                                    results.getString("phone"), results.getString("sin"), results.getString("address"), results.getDouble("wage"));
+                    table.setServer(employee);
+
             }
 
             return table;
@@ -185,7 +208,14 @@ public class TableDB {
             while(results.next()){
                 table = new Table(results.getInt(1), results.getString(2).charAt(0),results.getInt("seats"), results.getInt(4),
                                     results.getInt(5), results.getString("typechar").charAt(0), null, results.getInt("floor"));
-                ar.add(table);
+                if(results.getInt("employeeId") != 0)
+                {
+                    String query2 = "SELECT * FROM Employee WHERE '" + results.getInt("employeeId") + "';";
+                    Employee employee = new Employee(results.getInt("employeeID"), results.getString("role").charAt(0),results.getString("fname"), results.getString("lname"),
+                                    results.getString("phone"), results.getString("sin"), results.getString("address"), results.getDouble("wage"));
+                    table.setServer(employee);
+                    ar.add(table);
+                }
             }
 
             return ar;
@@ -212,6 +242,7 @@ public class TableDB {
         }
 
     }
-    
+
 
 }
+

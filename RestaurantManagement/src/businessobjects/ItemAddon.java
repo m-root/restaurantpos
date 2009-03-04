@@ -17,12 +17,6 @@ public class ItemAddon {
     public ItemAddon() {
     }
 
-    /**
-     *
-     * @param id
-     * @param price
-     * @param name
-     */
     public ItemAddon(int id, double price, String name) {
         this.id = id;
         this.price = price;
