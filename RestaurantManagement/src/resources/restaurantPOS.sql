@@ -173,10 +173,10 @@ DELIMITER ;
 DELIMITER $$
 
 /*!50003 CREATE DEFINER=`root`@`localhost` PROCEDURE `spAddTable`(IN id int(11), IN status char(1), IN xloc int(11), IN yloc int(11),
-									IN floor tinyint(1),IN seats tinyint(2), In employeeId int(11))
+									IN floor tinyint(1),IN seats tinyint(2),in typechar char(1), In employeeId int(11))
 BEGIN
-	INSERT INTO restable (tableid, status, xloc, yloc, floor, seats, employeeId)
-	VALUES(id, status, xloc, yloc, floor, seats, employeeId);
+	INSERT INTO restable (tableid, status, xloc, yloc, floor, seats, typechar, employeeId)
+	VALUES(id, status, xloc, yloc, floor, seats, typechar, employeeId);
     END */$$
 DELIMITER ;
 
