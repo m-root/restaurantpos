@@ -28,8 +28,6 @@ import persistence.TableBroker;
  */
 public class TableSelection extends javax.swing.JFrame {
 
-    //TODO: Inactive (Gray), Available (Green), Seated (Yellow), Active (Blue), Bussing (Purple)
-
     int currFloor;
     Dimension dim = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
     int screenWidth = (int)dim.getWidth();
@@ -72,6 +70,7 @@ public class TableSelection extends javax.swing.JFrame {
 
     public void loadTables()
     {
+        //TODO: Inactive (Gray), Open/Available (Green), Seated (Yellow), Active (Blue), Bussing (Purple)
         TableBroker tb = TableBroker.getBroker();
         ArrayList load = tb.getAll();
 
@@ -93,15 +92,72 @@ public class TableSelection extends javax.swing.JFrame {
 
                 if (curr.getType()=='T')
                 {
-                tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png"))); // NOI18N
+                    switch (curr.getStatus())
+                    {
+                        case 'I':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-gray.png"))); // NOI18N
+                            break;
+                        case 'O':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png"))); // NOI18N
+                            break;
+                        case 'S':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-yellow.png"))); // NOI18N
+                            break;
+                        case 'A':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-blue.png"))); // NOI18N
+                            break;
+                        case 'B':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-purple.png"))); // NOI18N
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Invalid Table State");
+                    }
                 tempObj.setToolTipText("Table");
                 } else if (curr.getType()=='B')
                 {
-                tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth.png"))); // NOI18N
+                    switch (curr.getStatus())
+                    {
+                        case 'I':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-gray.png"))); // NOI18N
+                            break;
+                        case 'O':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth.png"))); // NOI18N
+                            break;
+                        case 'S':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-yellow.png"))); // NOI18N
+                            break;
+                        case 'A':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-blue.png"))); // NOI18N
+                            break;
+                        case 'B':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-purple.png"))); // NOI18N
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Invalid Table State");
+                    }
                 tempObj.setToolTipText("Booth");
                 } else if (curr.getType()=='R')
                 {
-                tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar.png"))); // NOI18N
+                    switch (curr.getStatus())
+                    {
+                        case 'I':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-gray.png"))); // NOI18N
+                            break;
+                        case 'O':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar.png"))); // NOI18N
+                            break;
+                        case 'S':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-yellow.png"))); // NOI18N
+                            break;
+                        case 'A':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-blue.png"))); // NOI18N
+                            break;
+                        case 'B':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-purple.png"))); // NOI18N
+                            break;
+                        default:
+                            throw new IllegalArgumentException("Invalid Table State");
+                    }
                 tempObj.setToolTipText("Bar");
                 }
 
