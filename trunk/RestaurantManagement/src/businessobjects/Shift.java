@@ -5,13 +5,15 @@
 
 package businessobjects;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
 /**
  *
  * @author 457226
  */
-public class Shift {
+public class Shift implements Serializable{
+    private static final long serialVersionUID = 9040287304483793247L;
     private int id;
     private Calendar in;
     private Employee employee;

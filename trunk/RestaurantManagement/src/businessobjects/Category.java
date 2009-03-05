@@ -11,28 +11,28 @@ import java.util.ArrayList;
  *
  * @author 457226
  */
-public class Category {
+public class Category extends Categorizable{
     private int id;
     private String name;
     private Category parent;
-    private ArrayList<Item> items;
+    private ArrayList<Categorizable> sub;//a category can have both items and Categorys!!! i think a rename should be done items is not fitting anymore...
 
     public Category() {
     }
 
-    public Category(int id, String name, Category parent, ArrayList<Item> items) {
+    public Category(int id, String name, Category parent, ArrayList<Categorizable> sub) {
         this.id = id;
         this.name = name;
         this.parent = parent;
-        this.items = items;
+        this.sub = sub;
     }
 
-    public ArrayList<Item> getItems() {
-        return items;
+    public ArrayList<Categorizable> getSubs() {
+        return sub;
     }
 
-    public void setItems(ArrayList<Item> items) {
-        this.items = items;
+    public void setSubs(ArrayList<Categorizable> sub) {
+        this.sub = sub;
     }
 
     public int getId() {

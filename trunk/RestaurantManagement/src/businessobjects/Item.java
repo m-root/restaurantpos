@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author 457226
  */
-public class Item {
+public class Item extends Categorizable{
     private int id;
     private double price;
     private Category parent;
