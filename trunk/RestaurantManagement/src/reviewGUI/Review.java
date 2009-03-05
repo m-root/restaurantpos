@@ -76,6 +76,8 @@ public class Review extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         tableBack = new javax.swing.JLayeredPane();
         vSep = new javax.swing.JSeparator();
@@ -85,15 +87,29 @@ public class Review extends javax.swing.JFrame {
         lblTitle = new javax.swing.JLabel();
         btnUp = new javax.swing.JButton();
         btnHelp = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
         jScrollPane2 = new javax.swing.JScrollPane();
         jList2 = new javax.swing.JList();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jList3 = new javax.swing.JList();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jList6 = new javax.swing.JList();
+        jLabel5 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jList4 = new javax.swing.JList();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jList5 = new javax.swing.JList();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jList7 = new javax.swing.JList();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -110,7 +126,7 @@ public class Review extends javax.swing.JFrame {
 
         btnHome.setFocusable(false);
 
-        lblTitle.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Tahoma", 0, 48));
         lblTitle.setText("Review Screen");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -150,31 +166,51 @@ public class Review extends javax.swing.JFrame {
         btnHelp.setBounds(40, 720, 50, 50);
         tableBack.add(btnHelp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton1.setText("Pay Bill");
-        jButton1.setBounds(30, 600, 67, 23);
-        tableBack.add(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        jList1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jList1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
-
-        jScrollPane1.setBounds(420, 350, 160, 160);
-        tableBack.add(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         jList2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jList2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(jList2);
 
-        jScrollPane2.setBounds(220, 160, 160, 160);
+        jScrollPane2.setBounds(220, 160, 160, 130);
         tableBack.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton2.setText("Pay Bill");
+        jButton2.setBounds(10, 130, 110, 60);
+        tableBack.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton3.setText("Seat");
+        jButton3.setBounds(10, 260, 110, 60);
+        tableBack.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton4.setText("Table");
+        jButton4.setBounds(10, 330, 110, 60);
+        tableBack.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jSeparator1.setBounds(10, 240, 110, 10);
+        tableBack.add(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Move Items \nTo:");
+        jLabel2.setBounds(10, 220, 120, 20);
+        tableBack.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("Seat 1");
+        jLabel3.setBounds(260, 120, 90, 20);
+        tableBack.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Seat 2");
+        jLabel4.setBounds(460, 120, 90, 20);
+        tableBack.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jList3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jList3.setModel(new javax.swing.AbstractListModel() {
@@ -184,29 +220,88 @@ public class Review extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jList3);
 
-        jScrollPane3.setBounds(420, 160, 160, 160);
+        jScrollPane3.setBounds(420, 160, 160, 130);
         tableBack.add(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Seat 3");
+        jLabel7.setBounds(660, 120, 90, 20);
+        tableBack.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jList6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList6.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane6.setViewportView(jList6);
+
+        jScrollPane6.setBounds(620, 160, 160, 130);
+        tableBack.add(jScrollPane6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("Seat 4");
+        jLabel5.setBounds(260, 340, 90, 20);
+        tableBack.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jList4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jList4.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane4.setViewportView(jList4);
 
-        jScrollPane4.setBounds(220, 350, 160, 160);
+        jScrollPane4.setBounds(220, 380, 160, 130);
         tableBack.add(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jList5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList5.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane5.setViewportView(jList5);
+
+        jScrollPane5.setBounds(420, 380, 160, 130);
+        tableBack.add(jScrollPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Seat 5");
+        jLabel6.setBounds(460, 340, 90, 20);
+        tableBack.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Seat 6");
+        jLabel8.setBounds(660, 340, 90, 20);
+        tableBack.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        jList7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList7.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane7.setViewportView(jList7);
+
+        jScrollPane7.setBounds(620, 380, 160, 130);
+        tableBack.add(jScrollPane7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tableBack, javax.swing.GroupLayout.DEFAULT_SIZE, 979, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tableBack, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(tableBack, javax.swing.GroupLayout.DEFAULT_SIZE, 831, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -241,17 +336,33 @@ public class Review extends javax.swing.JFrame {
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnUp;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JList jList1;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JList jList2;
     private javax.swing.JList jList3;
     private javax.swing.JList jList4;
+    private javax.swing.JList jList5;
+    private javax.swing.JList jList6;
+    private javax.swing.JList jList7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JLayeredPane tableBack;
     private javax.swing.JSeparator vSep;
