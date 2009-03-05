@@ -11,12 +11,14 @@
 
 package serverGui;
 
+import businessobjects.*;
 import businessobjects.Table;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import javax.swing.JButton;
 import persistence.TableBroker;
 
 /**
@@ -28,6 +30,22 @@ public class Menu extends javax.swing.JFrame {
     Dimension dim = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
     int screenWidth = (int)dim.getWidth();
     int screenHeight = (int)dim.getHeight();
+    int b1id = 0;
+    int b2id = 0;
+    int b3id = 0;
+    int b4id = 0;
+    int b5id = 0;
+    int b6id = 0;
+    int b7id = 0;
+    int b8id = 0;
+    int b9id = 0;
+    int b10id = 0;
+    int b11id = 0;
+    int b12id = 0;
+    int b13id = 0;
+    int b14id = 0;
+    int b15id = 0;
+    int b16id = 0;
     static Menu t=null;
     
     /** Creates new GUI */
@@ -63,6 +81,76 @@ public class Menu extends javax.swing.JFrame {
         }
 
         return t;
+    }
+
+    //methods
+    //2 1 3 4 5 6 7 8 9 10 11 12 13 16 15 14
+    public void getSub(Category cat){
+        int i = 1;
+        if(cat.getSubs().size()>=i){
+            jButton2.setText(cat.getSubs().get(i).getName());
+            b2id = cat.getSubs().get(i).getId();
+        }i = 2;
+        if(cat.getSubs().size()>=i){
+            jButton1.setText(cat.getSubs().get(i).getName());
+            b1id = cat.getSubs().get(i).getId();
+        }i = 3;
+        if(cat.getSubs().size()>=i){
+            jButton3.setText(cat.getSubs().get(i).getName());
+            b3id = cat.getSubs().get(i).getId();
+        }i = 4;
+        if(cat.getSubs().size()>=i){
+            jButton4.setText(cat.getSubs().get(i).getName());
+            b4id = cat.getSubs().get(i).getId();
+        }i = 5;
+        if(cat.getSubs().size()>=i){
+            jButton5.setText(cat.getSubs().get(i).getName());
+            b5id = cat.getSubs().get(i).getId();
+        }i = 6;
+        if(cat.getSubs().size()>=i){
+            jButton6.setText(cat.getSubs().get(i).getName());
+            b6id = cat.getSubs().get(i).getId();
+        }i = 7;
+        if(cat.getSubs().size()>=i){
+            jButton7.setText(cat.getSubs().get(i).getName());
+            b7id = cat.getSubs().get(i).getId();
+        }i = 8;
+        if(cat.getSubs().size()>=i){
+            jButton8.setText(cat.getSubs().get(i).getName());
+            b8id = cat.getSubs().get(i).getId();
+        }i = 9;
+        if(cat.getSubs().size()>=i){
+            jButton9.setText(cat.getSubs().get(i).getName());
+            b9id = cat.getSubs().get(i).getId();
+        }i = 10;
+        if(cat.getSubs().size()>=i){
+            jButton10.setText(cat.getSubs().get(i).getName());
+            b10id = cat.getSubs().get(i).getId();
+        }i = 11;
+        if(cat.getSubs().size()>=i){
+            jButton11.setText(cat.getSubs().get(i).getName());
+            b11id = cat.getSubs().get(i).getId();
+        }i = 12;
+        if(cat.getSubs().size()>=i){
+            jButton12.setText(cat.getSubs().get(i).getName());
+            b12id = cat.getSubs().get(i).getId();
+        }i = 13;
+        if(cat.getSubs().size()>=i){
+            jButton13.setText(cat.getSubs().get(i).getName());
+            b13id = cat.getSubs().get(i).getId();
+        }i = 14;
+        if(cat.getSubs().size()>=i){
+            jButton16.setText(cat.getSubs().get(i).getName());
+            b16id = cat.getSubs().get(i).getId();
+        }i = 15;
+        if(cat.getSubs().size()>=i){
+            jButton15.setText(cat.getSubs().get(i).getName());
+            b15id = cat.getSubs().get(i).getId();
+        }i = 16;
+        if(cat.getSubs().size()>=i){
+            jButton14.setText(cat.getSubs().get(i).getName());
+            b14id = cat.getSubs().get(i).getId();
+        }
     }
 
     /** This method is called from within the constructor to

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class ShiftBroker implements Broker
 {
     private static ShiftBroker sb;
-	ShiftDB shiftDB = new ShiftDB();
+	ShiftDB shiftDB = ShiftDB.getDB();
 
 	private ShiftBroker()
 	{
