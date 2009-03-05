@@ -110,6 +110,7 @@ public class Review extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jList7 = new javax.swing.JList();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -188,8 +189,8 @@ public class Review extends javax.swing.JFrame {
         tableBack.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton4.setText("Table");
-        jButton4.setBounds(10, 330, 110, 60);
+        jButton4.setText("Menu");
+        jButton4.setBounds(10, 430, 110, 60);
         tableBack.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jSeparator1.setBounds(10, 240, 110, 10);
         tableBack.add(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -291,6 +292,11 @@ public class Review extends javax.swing.JFrame {
         jScrollPane7.setBounds(620, 380, 160, 130);
         tableBack.add(jScrollPane7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton5.setText("Table");
+        jButton5.setBounds(10, 330, 110, 60);
+        tableBack.add(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -341,6 +347,7 @@ public class Review extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
