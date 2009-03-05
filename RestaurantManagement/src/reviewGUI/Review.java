@@ -125,10 +125,13 @@ public class Review extends javax.swing.JFrame {
         btnLogout.setText("Logout");
         btnLogout.setFocusable(false);
 
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/home.png"))); // NOI18N
         btnHome.setFocusable(false);
 
         lblTitle.setFont(new java.awt.Font("Tahoma", 0, 48));
         lblTitle.setText("Review Screen");
+
+        btnUp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/up.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -139,7 +142,7 @@ public class Review extends javax.swing.JFrame {
                 .addComponent(btnHome)
                 .addGap(37, 37, 37)
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addComponent(btnUp, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -150,16 +153,17 @@ public class Review extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnUp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
+                    .addComponent(btnUp, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE)
                     .addComponent(lblTitle, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnHome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
+                    .addComponent(btnHome, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 59, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jPanel2.setBounds(0, 0, 770, 80);
         tableBack.add(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
+        btnHelp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/help.png"))); // NOI18N
         btnHelp.setToolTipText("Help");
         btnHelp.setBorderPainted(false);
         btnHelp.setContentAreaFilled(false);
@@ -167,7 +171,7 @@ public class Review extends javax.swing.JFrame {
         btnHelp.setBounds(40, 720, 50, 50);
         tableBack.add(btnHelp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jList2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList2.setFont(new java.awt.Font("Tahoma", 1, 24));
         jList2.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
             public int getSize() { return strings.length; }
@@ -180,40 +184,43 @@ public class Review extends javax.swing.JFrame {
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setText("Pay Bill");
+        jButton2.setFocusPainted(false);
         jButton2.setBounds(10, 130, 110, 60);
         tableBack.add(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 18));
         jButton3.setText("Seat");
+        jButton3.setFocusPainted(false);
         jButton3.setBounds(10, 260, 110, 60);
         tableBack.add(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 18));
         jButton4.setText("Menu");
+        jButton4.setFocusPainted(false);
         jButton4.setBounds(10, 430, 110, 60);
         tableBack.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSeparator1.setBounds(10, 240, 110, 10);
+        jSeparator1.setBounds(10, 240, 110, 2);
         tableBack.add(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Move Items \nTo:");
         jLabel2.setBounds(10, 220, 120, 20);
         tableBack.add(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24));
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Seat 1");
         jLabel3.setBounds(260, 120, 90, 20);
         tableBack.add(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24));
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Seat 2");
         jLabel4.setBounds(460, 120, 90, 20);
         tableBack.add(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jList3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList3.setFont(new java.awt.Font("Tahoma", 1, 24));
         jList3.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -224,13 +231,13 @@ public class Review extends javax.swing.JFrame {
         jScrollPane3.setBounds(420, 160, 160, 130);
         tableBack.add(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24));
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Seat 3");
         jLabel7.setBounds(660, 120, 90, 20);
         tableBack.add(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jList6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList6.setFont(new java.awt.Font("Tahoma", 1, 24));
         jList6.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -241,13 +248,13 @@ public class Review extends javax.swing.JFrame {
         jScrollPane6.setBounds(620, 160, 160, 130);
         tableBack.add(jScrollPane6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24));
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Seat 4");
         jLabel5.setBounds(260, 340, 90, 20);
         tableBack.add(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jList4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList4.setFont(new java.awt.Font("Tahoma", 1, 24));
         jList4.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6" };
             public int getSize() { return strings.length; }
@@ -258,7 +265,7 @@ public class Review extends javax.swing.JFrame {
         jScrollPane4.setBounds(220, 380, 160, 130);
         tableBack.add(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jList5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList5.setFont(new java.awt.Font("Tahoma", 1, 24));
         jList5.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -269,19 +276,19 @@ public class Review extends javax.swing.JFrame {
         jScrollPane5.setBounds(420, 380, 160, 130);
         tableBack.add(jScrollPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24));
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Seat 5");
         jLabel6.setBounds(460, 340, 90, 20);
         tableBack.add(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Seat 6");
         jLabel8.setBounds(660, 340, 90, 20);
         tableBack.add(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jList7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jList7.setFont(new java.awt.Font("Tahoma", 1, 24));
         jList7.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
@@ -292,8 +299,9 @@ public class Review extends javax.swing.JFrame {
         jScrollPane7.setBounds(620, 380, 160, 130);
         tableBack.add(jScrollPane7, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 18));
         jButton5.setText("Table");
+        jButton5.setFocusPainted(false);
         jButton5.setBounds(10, 330, 110, 60);
         tableBack.add(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -301,9 +309,7 @@ public class Review extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tableBack, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE))
+            .addComponent(tableBack, javax.swing.GroupLayout.DEFAULT_SIZE, 979, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -109,8 +109,9 @@ public class Login extends javax.swing.JFrame {
         btnHelp.setBounds(40, 720, 50, 50);
         tableBack.add(btnHelp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30));
-        jLabel1.setText("Ryan likes men");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Login");
 
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 24));
         jButton11.setText("Back");
@@ -161,7 +162,7 @@ public class Login extends javax.swing.JFrame {
         });
 
         jPasswordField1.setEditable(false);
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 1, 18));
         jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jPasswordField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +219,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jButton13.setFont(new java.awt.Font("Tahoma", 1, 24));
         jButton13.setText("Enter");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
