@@ -54,6 +54,7 @@ public class EmployeeDB {
              stmt = con.createStatement();
             String query = "SELECT count(*) FROM Employee WHERE " + employee.getNumber() + " = employeeId;";
             results = stmt.executeQuery(query);
+            System.out.println(results);
             if (results.getInt(1) == 0) {
                 stat.setInt(1, employee.getNumber());
                 stat.setString(2, "" + employee.getRole());

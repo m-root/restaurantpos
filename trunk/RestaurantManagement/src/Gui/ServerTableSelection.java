@@ -184,6 +184,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
     public void setCurrEmp(Employee currEmp)
     {
         this.currEmp=currEmp;
+        System.out.println(currEmp.getNumber());
     }
 
     /**

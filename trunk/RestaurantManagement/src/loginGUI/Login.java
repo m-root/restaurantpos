@@ -451,7 +451,7 @@ public class Login extends javax.swing.JFrame {
             Employee emp = (Employee)eb.get(idNum);
             char role = emp.getRole();
 
-            TimeStampBroker tsb = TimeStampBroker.getBroker();
+            EmployeeBroker tsb = EmployeeBroker.getBroker();
             tsb.save(emp);
 
             if(role == 'S')
