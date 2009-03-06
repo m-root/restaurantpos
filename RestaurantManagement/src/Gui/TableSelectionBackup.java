@@ -26,20 +26,18 @@ import persistence.TableBroker;
  *
  * @author 349322
  */
-public class TableSelection extends javax.swing.JFrame {
+public class TableSelectionBackup extends javax.swing.JFrame {
 
     int currFloor;
     Dimension dim = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
     int screenWidth = (int)dim.getWidth();
     int screenHeight = (int)dim.getHeight();
-    static TableSelection t=null;
-
-    int empId = 0;
+    static TableSelectionBackup t=null;
 
     ArrayList compArray = new ArrayList();
 
     /** Creates new form TableSelection */
-    private TableSelection() {
+    private TableSelectionBackup() {
         initComponents();
         currFloor=1;
         vSep.setBounds(130,80,vSep.getWidth(),jPanel1.getHeight()-80);
@@ -48,11 +46,11 @@ public class TableSelection extends javax.swing.JFrame {
         loadTables();
     }
 
-    public static TableSelection getGUI()
+    public static TableSelectionBackup getGUI()
     {
         if (t==null)
         {
-            t=new TableSelection();
+            t=new TableSelectionBackup();
 
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             GraphicsDevice gs = ge.getDefaultScreenDevice();
@@ -181,10 +179,6 @@ public class TableSelection extends javax.swing.JFrame {
         }
     }
 
-    public void setEmpId(int empId)
-    {
-        this.empId=empId;
-    }
 
     /**
      * Method that clears all the tables from the screen.
@@ -286,7 +280,7 @@ public class TableSelection extends javax.swing.JFrame {
         btnHelp.setBounds(40, 720, 50, 50);
         tableBack.add(btnHelp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        lblFloor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblFloor.setFont(new java.awt.Font("Tahoma", 0, 18));
         lblFloor.setForeground(new java.awt.Color(255, 255, 255));
         lblFloor.setText("Area:");
         lblFloor.setBounds(10, 610, 110, -1);

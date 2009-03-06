@@ -210,7 +210,7 @@ public class Restaurant extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
-        tableLabel.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        tableLabel.setFont(new java.awt.Font("Tahoma", 0, 22));
         tableLabel.setForeground(new java.awt.Color(255, 255, 255));
         tableLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tableLabel.setText("Table");
@@ -219,7 +219,7 @@ public class Restaurant extends javax.swing.JFrame {
 
         table.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png"))); // NOI18N
         table.setToolTipText("Table");
-        table.setBounds(20, 90, 92, 92);
+        table.setBounds(20, 90, -1, -1);
         tableBack.add(table, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         barLabel.setFont(new java.awt.Font("Tahoma", 0, 22));
@@ -247,7 +247,7 @@ public class Restaurant extends javax.swing.JFrame {
         booth.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth.png"))); // NOI18N
         booth.setToolTipText("Booth");
         booth.setName("booth"); // NOI18N
-        booth.setBounds(20, 210, 92, 92);
+        booth.setBounds(20, 210, -1, -1);
         tableBack.add(booth, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         vSep.setOrientation(javax.swing.SwingConstants.VERTICAL);
@@ -301,17 +301,17 @@ public class Restaurant extends javax.swing.JFrame {
 
         barSeats.setForeground(new java.awt.Color(255, 255, 255));
         barSeats.setText("4");
-        barSeats.setBounds(380, 270, 6, 14);
+        barSeats.setBounds(380, 270, -1, -1);
         tableBack.add(barSeats, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         tableSeats.setForeground(new java.awt.Color(255, 255, 255));
         tableSeats.setText("4");
-        tableSeats.setBounds(380, 230, 0, 14);
+        tableSeats.setBounds(380, 230, 0, -1);
         tableBack.add(tableSeats, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         boothSeats.setForeground(new java.awt.Color(255, 255, 255));
         boothSeats.setText("4");
-        boothSeats.setBounds(380, 250, 6, 14);
+        boothSeats.setBounds(380, 250, -1, -1);
         tableBack.add(boothSeats, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         btnFloor1.setFont(new java.awt.Font("Tahoma", 0, 22));
@@ -339,10 +339,10 @@ public class Restaurant extends javax.swing.JFrame {
         btnFloor2.setBounds(70, 660, 50, 50);
         tableBack.add(btnFloor2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        lblFloor.setFont(new java.awt.Font("Tahoma", 0, 18));
+        lblFloor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblFloor.setForeground(new java.awt.Color(255, 255, 255));
-        lblFloor.setText("Floor:");
-        lblFloor.setBounds(10, 620, 110, 22);
+        lblFloor.setText("Area:");
+        lblFloor.setBounds(10, 620, 110, -1);
         tableBack.add(lblFloor, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22));
