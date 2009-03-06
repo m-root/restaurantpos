@@ -20,7 +20,6 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import persistence.TableBroker;
 
 /**
@@ -182,7 +181,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
         }
     }
 
-    public void setEmpId(Employee currEmp)
+    public void setCurrEmp(Employee currEmp)
     {
         this.currEmp=currEmp;
     }
