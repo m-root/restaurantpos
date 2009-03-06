@@ -18,12 +18,12 @@ public class Order {
     private char paymentMethod;
     private boolean paid;
     private double paymentAmount;
-    private ArrayList<OrderItem> items;
+    private ArrayList<Item> items;
 
     public Order() {
     }
 
-    public Order(int id, Table table, int seat, char paymentMethod, boolean paid, double paymentAmount, ArrayList<OrderItem> items) {
+    public Order(int id, Table table, int seat, char paymentMethod, boolean paid, double paymentAmount, ArrayList<Item> items) {
         this.id = id;
         this.table = table;
         this.seat = seat;
@@ -41,11 +41,11 @@ public class Order {
         this.id = id;
     }
 
-    public ArrayList<OrderItem> getItems() {
+    public ArrayList<Item> getItems() {
         return items;
     }
 
-    public void setItems(ArrayList<OrderItem> items) {
+    public void setItems(ArrayList<Item> items) {
         this.items = items;
     }
 
