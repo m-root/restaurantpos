@@ -12,6 +12,7 @@
 package Gui;
 
 import businessobjects.Table;
+import businessobjects.Employee;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
@@ -34,7 +35,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
     int screenHeight = (int)dim.getHeight();
     static ServerTableSelection t=null;
 
-    int empId = 0;
+    Employee currEmp = null;
 
     ArrayList compArray = new ArrayList();
 
@@ -181,9 +182,9 @@ public class ServerTableSelection extends javax.swing.JFrame {
         }
     }
 
-    public void setEmpId(int empId)
+    public void setEmpId(Employee currEmp)
     {
-        this.empId=empId;
+        this.currEmp=currEmp;
     }
 
     /**
