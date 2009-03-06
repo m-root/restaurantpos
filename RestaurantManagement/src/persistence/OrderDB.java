@@ -118,21 +118,52 @@ public class OrderDB {
             if (count == 0) {
                 CallableStatement stat = con.prepareCall("call spAddOrder(?,?,?,?,?);");
                 stat.setInt(1, order.getId());
-                stat.setDouble(2, order.getPrice());
-                stat.setInt(3, order.getParent().getId());
-                stat.setString(4, order.getName());
-                stat.setDouble(5, order.getCost());
+                stat.setInt(2, order.getSeat());
+                stat.setString(3, "" + order.getPaymentMethod());
+                stat.setBoolean(4, order.isPaid());
+                stat.setDouble(5, order.getPaymentAmount());
                 stat.execute();
+                TableBroker tb = TableBroker.getBroker();
+                tb.save(order.getTable());
+                if(order.getItems().isEmpty())
+                {
+                    return true;
+                }
+                else
+                {
+                     ItemBroker ib = ItemBroker.getBroker();
+                      for(i=0; i < order.getItems().size(); i++)
+                      {
+                        ib.save(order.getItems().get(i));
+                      }
+                     return true;
+                }
 
             }
             else {
                 query = "UPDATE resorder SET orderID = '" + order.getId() +
-                                                "', price = '" + order.getPrice() +
-                                                "', category = '" + order.getParent().getId() +
-                                                "', name = '" + order.getName() +
-                                                "', cost = '" + order.getCost() +
+                                                "', seat = '" + order.getSeat() +
+                                                "', paymentMethod = '" + order.getPaymentMethod() +
+                                                "', paymentAmount = '" + order.getPaymentAmount() +
+                                                "', isPaid = '" + order.isPaid() +
                         " where orderId ='" + order.getId() + "';";
                 stmt.executeQuery(query);
+                TableBroker tb = TableBroker.getBroker();
+                tb.save(order.getTable());
+                if(order.getItems().isEmpty())
+                {
+                    return true;
+                }
+                else
+                {
+                     OrderItemBroker ib = OrderItemBroker.getBroker();
+                      for(i=0; i < order.getItems().size(); i++)
+                      {
+                        ib.save(order.getItems().get(i));
+                      }
+                     return true;
+                }
+
 
             }
 
@@ -158,10 +189,22 @@ public class OrderDB {
             results = stmt.executeQuery(query);
 
             while(results.next()){
-                order = new Order(results.getInt("orderID"), results.getDouble("price"),
-                                    null, results.getString("name"), results.getDouble("cost"));
-                CategoryBroker cb = CategoryBroker.getBroker();
-                order.setParent((Category)cb.get(results.getInt("categoryId")));
+                order = new Order(results.getInt("orderID"), null, results.getInt("seat"), results.getString("paymentMethod").charAt(0),
+                                    results.getBoolean("paid"),results.getDouble("paymentAmount"), null);
+                TableBroker tb = TableBroker.getBroker();
+                OrderItemBroker ib = OrderItemBroker.getBroker();
+                order.setTable((Table)tb.get(results.getInt("tableId")));
+                query = "SELECT * FROM OrderItem WHERE '" + results.getInt("OrderId") + "' = OrderId;";
+                ArrayList<Item> ar = new ArrayList<Item>();
+                while(results.next())
+                {
+                    Item item = (Item) ib.get(results.getInt("OrderId"));
+                    ar.add(item);
+                }
+                if(ar.size() != 0)
+                {
+                    order.setItems(ar);
+                }
             }
 
             return order;
@@ -183,11 +226,22 @@ public class OrderDB {
             results = stmt.executeQuery(query);
 
             while(results.next()){
-                order = new Order(results.getInt("orderID"), results.getDouble("price"),
-                                    null, results.getString("name"), results.getDouble("cost"));
-                CategoryBroker cb = CategoryBroker.getBroker();
-                order.setParent((Category)cb.get(results.getInt("categoryId")));
-                ar.add(order);
+                order = new Order(results.getInt("orderID"), null, results.getInt("seat"), results.getString("paymentMethod").charAt(0),
+                                    results.getBoolean("paid"),results.getDouble("paymentAmount"), null);
+                TableBroker tb = TableBroker.getBroker();
+                OrderItemBroker ib = OrderItemBroker.getBroker();
+                order.setTable((Table)tb.get(results.getInt("tableId")));
+                query = "SELECT * FROM OrderItem WHERE '" + results.getInt("OrderId") + "' = OrderId;";
+                ArrayList<Item> ar2 = new ArrayList<Item>();
+                while(results.next())
+                {
+                    Item item = (Item) ib.get(results.getInt("OrderId"));
+                    ar2.add(item);
+                }
+                if(ar.size() != 0)
+                {
+                    order.setItems(ar2);
+                }
             }
 
             return ar;
