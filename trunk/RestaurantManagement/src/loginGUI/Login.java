@@ -463,6 +463,7 @@ public class Login extends javax.swing.JFrame {
         }
         else
         {
+            System.out.println("return: " + eb.get(idNum));
             JOptionPane.showInternalMessageDialog(t, "Not a valid id");
         }
 
