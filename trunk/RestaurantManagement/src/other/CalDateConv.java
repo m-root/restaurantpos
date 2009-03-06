@@ -13,6 +13,11 @@ import java.util.Date;
  * @author 457226
  */
 public class CalDateConv {
+    /**
+     * takes in a Calendar and returns it as Date
+     * @param cal the Calendar to be converted
+     * @return a date that is the same time as the Calendar
+     */
     public Date calToDate(Calendar cal){
         Date dt = new Date();
         dt.setDate(cal.get(cal.DAY_OF_MONTH));
@@ -23,6 +28,11 @@ public class CalDateConv {
         dt.setYear(cal.get(cal.YEAR));
         return dt;
     }
+    /**
+     * takes in a date and returns it as a Calendar
+     * @param dt the Date to be converted
+     * @return a Calendar that is the same time as the date
+     */
     public Calendar dateToCal(Date dt){
         Calendar cal = Calendar.getInstance();
         cal.set(cal.DAY_OF_MONTH, dt.getDate());
