@@ -18,6 +18,7 @@ public class TimeStamp {
     private Date out;
     private Employee employee;
     private Date d;
+
     public TimeStamp() {
     }
 

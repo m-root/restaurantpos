@@ -451,8 +451,8 @@ public class Login extends javax.swing.JFrame {
             Employee emp = (Employee)eb.get(idNum);
             char role = emp.getRole();
 
-            EmployeeBroker tsb = EmployeeBroker.getBroker();
-            tsb.save(emp);
+            TimeStampBroker tsb = TimeStampBroker.getBroker();
+            //tsb.save(emp);
 
             if(role == 'S')
             {
@@ -463,7 +463,7 @@ public class Login extends javax.swing.JFrame {
         }
         else
         {
-            JOptionPane.showInternalMessageDialog(this, "Not a valid id");
+            JOptionPane.showInternalMessageDialog(t, "Not a valid id");
         }
 
         a = new ArrayList();

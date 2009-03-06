@@ -49,7 +49,8 @@ public class TimeStampDB {
      */
     public boolean save(Object o){
         try {
-            TimeStamp timeStamp = (TimeStamp) o;
+            TimeStamp timeStamp = new TimeStamp();
+            Employee emp = (Employee)o;
 
             CallableStatement stat = con.prepareCall("call spAddTimeStamp(?,?,?,?);");
              stmt = con.createStatement();
@@ -59,7 +60,7 @@ public class TimeStampDB {
                 stat.setInt(1, timeStamp.getId());
                 stat.setString(2, timeStamp.getIn().toString());
                 stat.setString(3, timeStamp.getOut().toString());
-                stat.setInt(4, timeStamp.getEmployee().getNumber());
+                stat.setInt(4, emp.getNumber());
                 stat.execute();
                 return true;
             }
