@@ -59,17 +59,26 @@ public class CategoryDB {
                 stat.setString(2, "" + category.getName());
                 stat.setInt(3, category.getParent().getId());
                 stat.execute();
-                if(category.getItems().isEmpty())
+                if(category.getSubs().isEmpty())
                 {
                     return true;
                 }
                 else
                 {
                     ItemBroker ib = ItemBroker.getBroker();
-                    for(int i=0; i < category.getItems().size(); i++)
+                    CategoryBroker cb = CategoryBroker.getBroker();
+                    for(int i=0; i < category.getSubs().size(); i++)
                     {
-                        Item item = category.getItems().get(i);
-                        ib.save(item);
+                        Categorizable item = category.getSubs().get(i);
+                        if(item.getParent() != null)
+                        {
+                            cb.save(item);
+                        }
+                        else
+                        {
+                            ib.save(item);
+                        }
+                        
                     }
                 }
                 return true;
@@ -80,17 +89,26 @@ public class CategoryDB {
                                                 "', parent = '" + category.getParent().getId() +
                         "' where categoryId =" + category.getId() + ";";
                 stmt.executeQuery(query);
-                if(category.getItems().isEmpty())
+                if(category.getSubs().isEmpty())
                 {
                     return true;
                 }
                 else
                 {
                     ItemBroker ib = ItemBroker.getBroker();
-                    for(int i=0; i < category.getItems().size(); i++)
+                    CategoryBroker cb = CategoryBroker.getBroker();
+                    for(int i=0; i < category.getSubs().size(); i++)
                     {
-                        Item item = category.getItems().get(i);
-                        ib.save(item);
+                        Categorizable item = category.getSubs().get(i);
+                        if(item.getParent() != null)
+                        {
+                            cb.save(item);
+                        }
+                        else
+                        {
+                            ib.save(item);
+                        }
+
                     }
                 }
                 return true;
@@ -140,17 +158,26 @@ public class CategoryDB {
                 stat.setString(2, "" + category.getName());
                 stat.setInt(3, category.getParent().getId());
                 stat.execute();
-                if(category.getItems().isEmpty())
+                if(category.getSubs().isEmpty())
                 {
                     return true;
                 }
                 else
                 {
                     ItemBroker ib = ItemBroker.getBroker();
-                    for(i=0; i < category.getItems().size(); i++)
+                    CategoryBroker cb = CategoryBroker.getBroker();
+                    for(i=0; i < category.getSubs().size(); i++)
                     {
-                        Item item = category.getItems().get(i);
-                        ib.save(item);
+                        Categorizable item = category.getSubs().get(i);
+                        if(item.getParent() != null)
+                        {
+                            cb.save(item);
+                        }
+                        else
+                        {
+                            ib.save(item);
+                        }
+
                     }
                 }
 
@@ -161,17 +188,26 @@ public class CategoryDB {
                                                 "', parent = '" + category.getParent().getId() +
                         "' where categoryId =" + category.getId() + ";";
                 stmt.executeQuery(query);
-                if(category.getItems().isEmpty())
+                if(category.getSubs().isEmpty())
                 {
                     return true;
                 }
                 else
                 {
                     ItemBroker ib = ItemBroker.getBroker();
-                    for(i=0; i < category.getItems().size(); i++)
+                    CategoryBroker cb = CategoryBroker.getBroker();
+                    for(i=0; i < category.getSubs().size(); i++)
                     {
-                        Item item = category.getItems().get(i);
-                        ib.save(item);
+                        Categorizable item = category.getSubs().get(i);
+                        if(item.getParent() != null)
+                        {
+                            cb.save(item);
+                        }
+                        else
+                        {
+                            ib.save(item);
+                        }
+
                     }
                 }
 
@@ -204,17 +240,25 @@ public class CategoryDB {
                 {
                     category.setParent(get(results.getInt("parent")));
                 }
+                query = "SELECT * FROM category WHERE '" + results.getInt("categoryId") + "' = parent;";
+                ArrayList<Categorizable> ar = new ArrayList<Categorizable>();
+                CategoryBroker cb = CategoryBroker.getBroker();
+                while(results.next())
+                {
+                    Categorizable item = (Categorizable) cb.get(results.getInt("categoryId"));
+                    ar.add(item);
+                }
                 query = "SELECT * FROM items WHERE '" + results.getInt("categoryId") + "' = categoryId;";
-                ArrayList<Item> ar = new ArrayList<Item>();
+                
                 ItemBroker ib = ItemBroker.getBroker();
                 while(results.next())
                 {
-                    Item item = (Item) ib.get(results.getInt("itemId"));
+                    Categorizable item = (Categorizable) ib.get(results.getInt("itemId"));
                     ar.add(item);
                 }
                 if(ar.size() != 0)
                 {
-                    category.setItems(ar);
+                    category.setSubs(ar);
                 }
             }
 
@@ -242,17 +286,25 @@ public class CategoryDB {
                 {
                     category.setParent(get(results.getInt("parent")));
                 }
+                query = "SELECT * FROM category WHERE '" + results.getInt("categoryId") + "' = parent;";
+                ArrayList<Categorizable> ar2 = new ArrayList<Categorizable>();
+                CategoryBroker cb = CategoryBroker.getBroker();
+                while(results.next())
+                {
+                    Categorizable item = (Categorizable) cb.get(results.getInt("categoryId"));
+                    ar2.add(item);
+                }
                 query = "SELECT * FROM items WHERE '" + results.getInt("categoryId") + "' = categoryId;";
-                ArrayList<Item> ar2 = new ArrayList<Item>();
+
                 ItemBroker ib = ItemBroker.getBroker();
                 while(results.next())
                 {
-                    Item item = (Item) ib.get(results.getInt("itemId"));
+                    Categorizable item = (Categorizable) ib.get(results.getInt("itemId"));
                     ar2.add(item);
                 }
                 if(ar.size() != 0)
                 {
-                    category.setItems(ar2);
+                    category.setSubs(ar2);
                 }
                 ar.add(category);
             }
