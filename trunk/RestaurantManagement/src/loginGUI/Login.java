@@ -454,10 +454,10 @@ public class Login extends javax.swing.JFrame {
             TimeStampBroker tsb = TimeStampBroker.getBroker();
             tsb.save(emp);
 
-            if(role == 'M')
+            if(role == 'S')
             {
-                //ManagerScreen ms = new ManagerScreen();
-                //ms.setVisibility(true);
+                ServerTableSelection sts = ServerTableSelection.getGUI();
+                sts.setCurrEmp(emp);
             }
 
         }
