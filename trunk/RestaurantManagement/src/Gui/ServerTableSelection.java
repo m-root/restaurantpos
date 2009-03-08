@@ -140,27 +140,21 @@ public class ServerTableSelection extends javax.swing.JFrame {
                 tempObj.setToolTipText("Booth");
                 } else if (curr.getType()=='R')
                 {
-                    switch (curr.getStatus())
+                    if (curr.getServer().getNumber()==currEmp.getNumber())
                     {
-                        case 'I':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-gray.png"))); // NOI18N
-                            break;
-                        case 'O':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar.png"))); // NOI18N
-                            break;
-                        case 'S':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-yellow.png"))); // NOI18N
-                            break;
-                        case 'A':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-blue.png"))); // NOI18N
-                            break;
-                        case 'B':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-purple.png"))); // NOI18N
-                            break;
-                        default:
-                            throw new IllegalArgumentException("Invalid Table State");
+                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar.png"))); // NOI18N
+                    } else {
+                        switch (curr.getStatus())
+                        {
+                            case 'I':
+                                tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-gray.png")));
+                                break;
+                            default:
+                                tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-yellow.png")));
+                                break;
+                        }
+                        tempObj.setToolTipText("Bar");
                     }
-                tempObj.setToolTipText("Bar");
                 }
 
                 tableBack.add(tempObj);
