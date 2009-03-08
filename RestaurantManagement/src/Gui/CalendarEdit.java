@@ -14,10 +14,12 @@ package Gui;
 import Gui.InputPopup;
 import businesscalendar.*;
 import businessobjects.*;
+import businessobjects.Employee;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import other.StringMod;
+import persistence.EmployeeBroker;
 
 /**
  *
@@ -32,7 +34,7 @@ public class CalendarEdit extends javax.swing.JFrame {
     ArrayList<Employee> avalibleEmployees = new ArrayList();
     ArrayList<Shift> activeShifts = new ArrayList();
     Calendar date = null;
-    EmployeeApp emApp = EmployeeApp.getApp();
+    EmployeeBroker eb = EmployeeBroker.getBroker();
 
     /** Creates new form Gui */
     private static CalendarEdit gui;
@@ -69,17 +71,17 @@ public class CalendarEdit extends javax.swing.JFrame {
         date = cl;
         activeShifts = shifts;
 
-        emApp.start();
-        for(int i = 0;i<emApp.employees.size();i++){
+        ArrayList<Employee> employees = eb.getAll();
+        for(int i = 0;i<employees.size();i++){
             boolean notActive = true;
             for(int j = 0;j<activeShifts.size();j++){
-                if(emApp.employees.get(i).getNumber()==activeShifts.get(j).getEmployee().getNumber()){
+                if(employees.get(i).getNumber()==activeShifts.get(j).getEmployee().getNumber()){
                     notActive = false;
                     break;
                 }
             }
             if(notActive){
-                avalibleEmployees.add(emApp.employees.get(i));
+                avalibleEmployees.add(employees.get(i));
             }
         }
         dv2 = new Vector();

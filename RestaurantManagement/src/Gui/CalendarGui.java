@@ -32,7 +32,7 @@ public class CalendarGui extends javax.swing.JFrame
 {
 
     TimeKeeper tk = TimeKeeper.getTimeKeeper();
-    CalendarEdit cedt;// = CalendarEdit.getGui();
+    CalendarEdit cedt;
 
     int barvalue = 50;
 
@@ -610,11 +610,22 @@ public class CalendarGui extends javax.swing.JFrame
     * @param args the command line arguments
     */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new CalendarGui().setVisible(true);
             }
-        });
+        });*/
+
+        TimeKeeper tk = TimeKeeper.getTimeKeeper();
+        tk.print();
+
+        CalendarGui gui = CalendarGui.getGui();
+        gui.setVisible(true);
+        gui.startGUI();
+
+        CalendarEdit cedt = CalendarEdit.getGui();
+        cedt.startGUI();
+        gui.setCedt(cedt);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

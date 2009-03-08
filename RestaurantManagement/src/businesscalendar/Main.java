@@ -8,7 +8,6 @@ package businesscalendar;
 import Gui.CalendarEdit;
 import Gui.CalendarGui;
 import businessobjects.*;
-import gui.*;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
