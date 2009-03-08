@@ -85,71 +85,106 @@ public class Menu extends javax.swing.JFrame {
 
     //methods
     //2 1 3 4 5 6 7 8 9 10 11 12 13 16 15 14
+
+
     public void getSub(Category cat){
+        jButton1.setVisible(false);
+        jButton2.setVisible(false);
+        jButton3.setVisible(false);
+        jButton4.setVisible(false);
+        jButton5.setVisible(false);
+        jButton6.setVisible(false);
+        jButton7.setVisible(false);
+        jButton8.setVisible(false);
+        jButton9.setVisible(false);
+        jButton10.setVisible(false);
+        jButton11.setVisible(false);
+        jButton12.setVisible(false);
+        jButton13.setVisible(false);
+        jButton14.setVisible(false);
+        jButton15.setVisible(false);
+        jButton16.setVisible(false);
+
         int i = 1;
         if(cat.getSubs().size()>=i){
             jButton2.setText(cat.getSubs().get(i).getName());
             b2id = cat.getSubs().get(i).getId();
+        jButton2.setVisible(false);
         }i = 2;
         if(cat.getSubs().size()>=i){
             jButton1.setText(cat.getSubs().get(i).getName());
             b1id = cat.getSubs().get(i).getId();
+        jButton1.setVisible(false);
         }i = 3;
         if(cat.getSubs().size()>=i){
             jButton3.setText(cat.getSubs().get(i).getName());
             b3id = cat.getSubs().get(i).getId();
+        jButton3.setVisible(false);
         }i = 4;
         if(cat.getSubs().size()>=i){
             jButton4.setText(cat.getSubs().get(i).getName());
             b4id = cat.getSubs().get(i).getId();
+        jButton4.setVisible(false);
         }i = 5;
         if(cat.getSubs().size()>=i){
             jButton5.setText(cat.getSubs().get(i).getName());
             b5id = cat.getSubs().get(i).getId();
+        jButton5.setVisible(false);
         }i = 6;
         if(cat.getSubs().size()>=i){
             jButton6.setText(cat.getSubs().get(i).getName());
             b6id = cat.getSubs().get(i).getId();
+        jButton6.setVisible(false);
         }i = 7;
         if(cat.getSubs().size()>=i){
             jButton7.setText(cat.getSubs().get(i).getName());
             b7id = cat.getSubs().get(i).getId();
+        jButton7.setVisible(false);
         }i = 8;
         if(cat.getSubs().size()>=i){
             jButton8.setText(cat.getSubs().get(i).getName());
             b8id = cat.getSubs().get(i).getId();
+        jButton8.setVisible(false);
         }i = 9;
         if(cat.getSubs().size()>=i){
             jButton9.setText(cat.getSubs().get(i).getName());
             b9id = cat.getSubs().get(i).getId();
+        jButton9.setVisible(false);
         }i = 10;
         if(cat.getSubs().size()>=i){
             jButton10.setText(cat.getSubs().get(i).getName());
             b10id = cat.getSubs().get(i).getId();
+        jButton10.setVisible(false);
         }i = 11;
         if(cat.getSubs().size()>=i){
             jButton11.setText(cat.getSubs().get(i).getName());
             b11id = cat.getSubs().get(i).getId();
+        jButton11.setVisible(false);
         }i = 12;
         if(cat.getSubs().size()>=i){
             jButton12.setText(cat.getSubs().get(i).getName());
             b12id = cat.getSubs().get(i).getId();
+        jButton12.setVisible(false);
         }i = 13;
         if(cat.getSubs().size()>=i){
             jButton13.setText(cat.getSubs().get(i).getName());
             b13id = cat.getSubs().get(i).getId();
+        jButton13.setVisible(false);
         }i = 14;
         if(cat.getSubs().size()>=i){
             jButton16.setText(cat.getSubs().get(i).getName());
             b16id = cat.getSubs().get(i).getId();
+        jButton16.setVisible(false);
         }i = 15;
         if(cat.getSubs().size()>=i){
             jButton15.setText(cat.getSubs().get(i).getName());
             b15id = cat.getSubs().get(i).getId();
+        jButton15.setVisible(false);
         }i = 16;
         if(cat.getSubs().size()>=i){
             jButton14.setText(cat.getSubs().get(i).getName());
             b14id = cat.getSubs().get(i).getId();
+        jButton14.setVisible(false);
         }
     }
 
