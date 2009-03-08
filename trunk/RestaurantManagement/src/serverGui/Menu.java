@@ -19,6 +19,7 @@ import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JButton;
+import persistence.CategoryBroker;
 import persistence.TableBroker;
 
 /**
@@ -85,6 +86,11 @@ public class Menu extends javax.swing.JFrame {
 
     //methods
     //2 1 3 4 5 6 7 8 9 10 11 12 13 16 15 14
+
+    public void setBase(){
+        Category c = (Category)CategoryBroker.getBroker().get(0);
+        getSub(c);
+    }
 
 
     public void getSub(Category cat){
@@ -444,11 +450,15 @@ public class Menu extends javax.swing.JFrame {
     * @param args the command line arguments
     */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        /*java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 getGUI();
+                setBase();
             }
-        });
+        });*/
+        Menu m = Menu.getGUI();
+        m.setVisible(true);
+        m.setBase();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
