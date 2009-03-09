@@ -22,11 +22,22 @@ public class Shift implements Serializable{
     public Shift() {
     }
 
-    public Shift(int id, Calendar in, Employee employee) {
+    public Shift(int id, Calendar in, Calendar out, Employee employee) {
         this.id = id;
         this.in = in;
+        this.out = out;
         this.employee = employee;
     }
+
+    public Calendar getOut() {
+        return out;
+    }
+
+    public void setOut(Calendar out) {
+        this.out = out;
+    }
+
+    
 
     public Employee getEmployee() {
         return employee;
