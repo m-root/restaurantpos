@@ -50,14 +50,14 @@ public class CategoryDB {
         try {
             Category category = (Category) o;
 
-            CallableStatement stat = con.prepareCall("call spAddCategory(?,?,?);");
+            CallableStatement stat = con.prepareCall("call spAddCategory(?,?);");
              stmt = con.createStatement();
             String query = "SELECT count(*) FROM Category WHERE " + category.getId() + " = categoryId;";
             results = stmt.executeQuery(query);
             if (results.getInt(1) == 0) {
-                stat.setInt(1, category.getId());
-                stat.setString(2, "" + category.getName());
-                stat.setInt(3, category.getParent().getId());
+                
+                stat.setString(1, "" + category.getName());
+                stat.setInt(2, category.getParent().getId());
                 stat.execute();
                 if(category.getSubs().isEmpty())
                 {
