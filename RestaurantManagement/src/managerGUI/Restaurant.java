@@ -25,6 +25,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import loginGUI.Login;
 import persistence.TableBroker;
 
 /**
@@ -123,8 +124,8 @@ public class Restaurant extends javax.swing.JFrame {
         if (r==null)
         {
             r=new Restaurant();
-            r.setVisible(true);
         }
+        r.setVisible(true);
 
         return r;
     }
@@ -263,7 +264,7 @@ public class Restaurant extends javax.swing.JFrame {
         btnSave.setBounds(10, 560, 110, 50);
         tableBack.add(btnSave, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnRevert.setFont(new java.awt.Font("Tahoma", 0, 22));
+        btnRevert.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         btnRevert.setText("Restore");
         btnRevert.setToolTipText("Revert to Last Save");
         btnRevert.setFocusable(false);
@@ -341,9 +342,14 @@ public class Restaurant extends javax.swing.JFrame {
         lblFloor.setBounds(10, 620, 110, -1);
         tableBack.add(lblFloor, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22));
+        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.setFocusable(false);
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseReleased(evt);
+            }
+        });
 
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/home.png"))); // NOI18N
         btnHome.setFocusable(false);
@@ -633,6 +639,11 @@ public class Restaurant extends javax.swing.JFrame {
             gs.setFullScreenWindow(null);
         }
     }//GEN-LAST:event_formWindowGainedFocus
+
+    private void btnLogoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseReleased
+        Login l = Login.getGUI();
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutMouseReleased
 
 
 
