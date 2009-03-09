@@ -94,48 +94,20 @@ public class ServerTableSelection extends javax.swing.JFrame {
 
                 if (curr.getType()=='T')
                 {
-                    switch (curr.getStatus())
+                    if (curr.getServer().getNumber()==currEmp.getNumber())
                     {
-                        case 'I':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-gray.png"))); // NOI18N
-                            break;
-                        case 'O':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png"))); // NOI18N
-                            break;
-                        case 'S':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-yellow.png"))); // NOI18N
-                            break;
-                        case 'A':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-blue.png"))); // NOI18N
-                            break;
-                        case 'B':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-purple.png"))); // NOI18N
-                            break;
-                        default:
-                            throw new IllegalArgumentException("Invalid Table State");
+                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png")));
+                    } else {
+                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-gray.png")));
                     }
                 tempObj.setToolTipText("Table");
                 } else if (curr.getType()=='B')
                 {
-                    switch (curr.getStatus())
+                    if (curr.getServer().getNumber()==currEmp.getNumber())
                     {
-                        case 'I':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-gray.png"))); // NOI18N
-                            break;
-                        case 'O':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth.png"))); // NOI18N
-                            break;
-                        case 'S':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-yellow.png"))); // NOI18N
-                            break;
-                        case 'A':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-blue.png"))); // NOI18N
-                            break;
-                        case 'B':
-                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-purple.png"))); // NOI18N
-                            break;
-                        default:
-                            throw new IllegalArgumentException("Invalid Table State");
+                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth.png")));
+                    } else {
+                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-gray.png")));
                     }
                 tempObj.setToolTipText("Booth");
                 } else if (curr.getType()=='R')
@@ -144,17 +116,9 @@ public class ServerTableSelection extends javax.swing.JFrame {
                     {
                         tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar.png"))); // NOI18N
                     } else {
-                        switch (curr.getStatus())
-                        {
-                            case 'I':
-                                tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-gray.png")));
-                                break;
-                            default:
-                                tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-yellow.png")));
-                                break;
-                        }
-                        tempObj.setToolTipText("Bar");
+                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-gray.png")));
                     }
+                    tempObj.setToolTipText("Bar");
                 }
 
                 tableBack.add(tempObj);
@@ -178,6 +142,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
     public void setCurrEmp(Employee currEmp)
     {
         this.currEmp=currEmp;
+        loadTables();
     }
 
     /**
