@@ -17,6 +17,7 @@ public class Item extends Categorizable{
     private Category parent;
     private String name;
     private double cost;
+    private int type = Categorizable.TYPE_ITEM;
 
     public Item() {
     }
@@ -71,5 +72,8 @@ public class Item extends Categorizable{
         this.price = price;
     }
 
+    public int getType(){
+        return type;
+    }
 
 }
