@@ -9,10 +9,13 @@ package businessobjects;
  *
  * @author 457226
  */
-public abstract class Categorizable {
+public abstract class Categorizable {  
+    public static int TYPE_CATEGORY = 0;
+    public static int TYPE_ITEM = 1;
     private int id;
     private String name;
     private Category parent;
+    private int type;
     public int getId() {
         return id;
     }
@@ -35,5 +38,13 @@ public abstract class Categorizable {
 
     public void setParent(Category parent) {
         this.parent = parent;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

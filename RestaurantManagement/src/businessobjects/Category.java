@@ -15,8 +15,8 @@ public class Category extends Categorizable{
     private int id;
     private String name;
     private Category parent;
-    private ArrayList<Categorizable> sub;//a category can have both items and Categorys!!! i think a rename should be done items is not fitting anymore...
-
+    private ArrayList<Categorizable> sub;
+    private int type = Categorizable.TYPE_CATEGORY;
     public Category() {
     }
 
@@ -57,6 +57,9 @@ public class Category extends Categorizable{
 
     public void setParent(Category parent) {
         this.parent = parent;
+    }
+    public int getType(){
+        return type;
     }
 
 
