@@ -125,6 +125,15 @@ public class Restaurant extends javax.swing.JFrame {
         {
             r=new Restaurant();
         }
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(r);
+            r.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
         r.setVisible(true);
 
         return r;
@@ -629,15 +638,7 @@ public class Restaurant extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFloor2MouseReleased
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice gs = ge.getDefaultScreenDevice();
 
-        try {
-            gs.setFullScreenWindow(r);
-            r.validate();
-        } catch(Error e) {
-            gs.setFullScreenWindow(null);
-        }
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void btnLogoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseReleased
