@@ -12,14 +12,12 @@
 package Gui;
 
 import businessobjects.Table;
-import businessobjects.Employee;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.util.ArrayList;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import loginGUI.Login;
 import persistence.TableBroker;
@@ -36,11 +34,9 @@ public class HostTableSelection extends javax.swing.JFrame {
     int screenHeight = (int)dim.getHeight();
     static HostTableSelection t=null;
 
-    Employee currEmp = null;
-
     ArrayList compArray = new ArrayList();
 
-    String defAction = "order";
+    String defAction = "seated";
 
     /** Creates new form ServerTableSelection */
     private HostTableSelection() {
@@ -85,7 +81,7 @@ public class HostTableSelection extends javax.swing.JFrame {
                 javax.swing.JLabel tempObj = new javax.swing.JLabel();
                 javax.swing.JLabel tempObjSeats = new javax.swing.JLabel();
 
-                tempObjLabel.setForeground(new java.awt.Color(255, 255, 255));
+                tempObjLabel.setForeground(Color.black);
                 tempObjLabel.setFont(new java.awt.Font("Tahoma", 0, 22));
                 tempObjLabel.setBounds(20, 50, 90, 30);
                 tempObjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -93,29 +89,47 @@ public class HostTableSelection extends javax.swing.JFrame {
 
                 if (curr.getType()=='T')
                 {
-                    if (curr.getServer()!=null&&curr.getServer().getNumber()==currEmp.getNumber())
+                    switch (curr.getStatus())
                     {
-                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png")));
-                    } else {
-                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-gray.png")));
+                        case 'O':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png"))); // NOI18N
+                            break;
+                        case 'S':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-yellow.png"))); // NOI18N
+                            break;
+                        default:
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-gray.png"))); // NOI18N
+                            break;
                     }
                 tempObj.setToolTipText("Table");
                 } else if (curr.getType()=='B')
                 {
-                    if (curr.getServer()!=null&&curr.getServer().getNumber()==currEmp.getNumber())
+                    switch (curr.getStatus())
                     {
-                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth.png")));
-                    } else {
-                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth-gray.png")));
+                        case 'O':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png"))); // NOI18N
+                            break;
+                        case 'S':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-yellow.png"))); // NOI18N
+                            break;
+                        default:
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-gray.png"))); // NOI18N
+                            break;
                     }
                 tempObj.setToolTipText("Booth");
                 } else if (curr.getType()=='R')
                 {
-                    if (curr.getServer()!=null&&curr.getServer().getNumber()==currEmp.getNumber())
+                    switch (curr.getStatus())
                     {
-                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar.png"))); // NOI18N
-                    } else {
-                        tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar-gray.png")));
+                        case 'O':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png"))); // NOI18N
+                            break;
+                        case 'S':
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-yellow.png"))); // NOI18N
+                            break;
+                        default:
+                            tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table-gray.png"))); // NOI18N
+                            break;
                     }
                     tempObj.setToolTipText("Bar");
                 }
@@ -136,12 +150,6 @@ public class HostTableSelection extends javax.swing.JFrame {
                 tempObjSeats.setVisible(false);
             }
         }
-    }
-
-    public void setCurrEmp(Employee currEmp)
-    {
-        this.currEmp=currEmp;
-        loadTables();
     }
 
     /**
@@ -286,13 +294,13 @@ public class HostTableSelection extends javax.swing.JFrame {
 
         buttonGroup1.add(btnOpen);
         btnOpen.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        btnOpen.setForeground(Color.red);
         btnOpen.setSelected(true);
         btnOpen.setText("Open");
+        btnOpen.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnOpen.setFocusPainted(false);
-        btnOpen.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                btnOpenStateChanged(evt);
+        btnOpen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnOpenMouseReleased(evt);
             }
         });
         btnOpen.setBounds(10, 100, 110, 80);
@@ -300,12 +308,14 @@ public class HostTableSelection extends javax.swing.JFrame {
 
         buttonGroup1.add(btnClosed);
         btnClosed.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnClosed.setForeground(Color.gray);
         btnClosed.setText("Closed");
+        btnClosed.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnClosed.setFocusPainted(false);
         btnClosed.setOpaque(true);
-        btnClosed.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                btnClosedStateChanged(evt);
+        btnClosed.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnClosedMouseReleased(evt);
             }
         });
         btnClosed.setBounds(10, 280, 110, 80);
@@ -313,12 +323,14 @@ public class HostTableSelection extends javax.swing.JFrame {
 
         buttonGroup1.add(btnSeated);
         btnSeated.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnSeated.setForeground(Color.gray);
         btnSeated.setText("Seated");
+        btnSeated.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         btnSeated.setFocusPainted(false);
         btnSeated.setOpaque(true);
-        btnSeated.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                btnSeatedStateChanged(evt);
+        btnSeated.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnSeatedMouseReleased(evt);
             }
         });
         btnSeated.setBounds(10, 190, 110, 80);
@@ -369,40 +381,40 @@ public class HostTableSelection extends javax.swing.JFrame {
         }
 }//GEN-LAST:event_btnFloor2MouseReleased
 
-    private void btnOpenStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnOpenStateChanged
-        if (btnOpen.isSelected())
-        {
-            btnOpen.setForeground(Color.red);
-            btnClosed.setForeground(Color.gray);
-            btnSeated.setForeground(Color.gray);
-            defAction = "open";
-        }
-}//GEN-LAST:event_btnOpenStateChanged
-
-    private void btnClosedStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnClosedStateChanged
-        if (btnClosed.isSelected())
-        {
-            btnOpen.setForeground(Color.gray);
-            btnClosed.setForeground(Color.red);
-            btnSeated.setForeground(Color.gray);
-            defAction = "inactive";
-        }
-}//GEN-LAST:event_btnClosedStateChanged
-
     private void btnLogoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseReleased
         Login l = Login.getGUI();
         this.dispose();
     }//GEN-LAST:event_btnLogoutMouseReleased
 
-    private void btnSeatedStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnSeatedStateChanged
-        if (btnClosed.isSelected())
+    private void btnOpenMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOpenMouseReleased
+        if (btnOpen.isSelected())
+        {
+            btnOpen.setForeground(Color.black);
+            btnClosed.setForeground(Color.gray);
+            btnSeated.setForeground(Color.gray);
+            defAction = "open";
+        }
+    }//GEN-LAST:event_btnOpenMouseReleased
+
+    private void btnSeatedMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSeatedMouseReleased
+        if (btnSeated.isSelected())
         {
             btnOpen.setForeground(Color.gray);
             btnClosed.setForeground(Color.gray);
-            btnSeated.setForeground(Color.red);
-            defAction = "inactive";
+            btnSeated.setForeground(Color.black);
+            defAction = "seated";
         }
-}//GEN-LAST:event_btnSeatedStateChanged
+    }//GEN-LAST:event_btnSeatedMouseReleased
+
+    private void btnClosedMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClosedMouseReleased
+        if (btnClosed.isSelected())
+        {
+            btnOpen.setForeground(Color.gray);
+            btnClosed.setForeground(Color.black);
+            btnSeated.setForeground(Color.gray);
+            defAction = "closed";
+        }
+    }//GEN-LAST:event_btnClosedMouseReleased
 
     /**
     * @param args the command line arguments
