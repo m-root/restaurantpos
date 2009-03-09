@@ -51,7 +51,7 @@ public class ItemAddonDB {
             ItemAddon itemAddon = (ItemAddon) o;
 
             CallableStatement stat = con.prepareCall("call spAddItemAddon(?,?,?);");
-             stmt = con.createStatement();
+            stmt = con.createStatement();
             String query = "SELECT count(*) FROM ItemAddon WHERE " + itemAddon.getId() + " = itemAddonId;";
             results = stmt.executeQuery(query);
             if (results.getInt(1) == 0) {
