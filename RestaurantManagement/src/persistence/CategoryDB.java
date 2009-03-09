@@ -273,7 +273,9 @@ public class CategoryDB {
             String query = "SELECT * FROM Category WHERE '" + number + "' = categoryId;";
             results = stmt.executeQuery(query);
 
-            results.next();
+            while(results.next()){
+
+
             category = new Category(results.getInt("categoryID"), results.getString("name"),null,null);
 
             if(results.getInt("parent") != 0)
@@ -301,6 +303,8 @@ public class CategoryDB {
             category.setSubs(ar);
 
             return category;
+            }
+            return null;
         } catch (SQLException ex) {
             Logger.getLogger(CategoryDB.class.getName()).log(Level.SEVERE, null, ex);
             return null;
