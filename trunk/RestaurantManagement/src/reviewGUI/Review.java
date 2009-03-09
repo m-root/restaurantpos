@@ -18,6 +18,7 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import loginGUI.Login;
 import persistence.TableBroker;
 
 /**
@@ -50,19 +51,8 @@ public class Review extends javax.swing.JFrame {
         if (t==null)
         {
             t=new Review();
-
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice gs = ge.getDefaultScreenDevice();
-
-            try {
-                gs.setFullScreenWindow(t);
-                t.validate();
-            } catch(Error e) {
-                gs.setFullScreenWindow(null);
-            }
-
-            t.setVisible(true);
         }
+        t.setVisible(true);
 
         return t;
     }
@@ -114,6 +104,13 @@ public class Review extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -121,9 +118,14 @@ public class Review extends javax.swing.JFrame {
         vSep.setBounds(130, 80, 50, 740);
         tableBack.add(vSep, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22));
+        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.setFocusable(false);
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseReleased(evt);
+            }
+        });
 
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/home.png"))); // NOI18N
         btnHome.setFocusable(false);
@@ -182,7 +184,7 @@ public class Review extends javax.swing.JFrame {
         jScrollPane2.setBounds(220, 160, 160, 130);
         tableBack.add(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18));
         jButton2.setText("Pay Bill");
         jButton2.setFocusPainted(false);
         jButton2.setBounds(10, 130, 110, 60);
@@ -199,7 +201,7 @@ public class Review extends javax.swing.JFrame {
         jButton4.setFocusPainted(false);
         jButton4.setBounds(10, 430, 110, 60);
         tableBack.add(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jSeparator1.setBounds(10, 240, 110, 2);
+        jSeparator1.setBounds(10, 240, 110, -1);
         tableBack.add(jSeparator1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14));
@@ -331,6 +333,23 @@ public class Review extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnLogoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseReleased
+        Login l = Login.getGUI();
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutMouseReleased
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(t);
+            t.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
     * @param args the command line arguments
