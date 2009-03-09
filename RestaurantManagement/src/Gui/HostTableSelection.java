@@ -191,7 +191,7 @@ public class HostTableSelection extends javax.swing.JFrame {
         btnFloor2 = new javax.swing.JButton();
         btnFloor1 = new javax.swing.JButton();
         btnOpen = new javax.swing.JToggleButton();
-        btnInactive = new javax.swing.JToggleButton();
+        btnClosed = new javax.swing.JToggleButton();
         btnSeated = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -298,18 +298,18 @@ public class HostTableSelection extends javax.swing.JFrame {
         btnOpen.setBounds(10, 100, 110, 80);
         tableBack.add(btnOpen, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        buttonGroup1.add(btnInactive);
-        btnInactive.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
-        btnInactive.setText("Inactive");
-        btnInactive.setFocusPainted(false);
-        btnInactive.setOpaque(true);
-        btnInactive.addChangeListener(new javax.swing.event.ChangeListener() {
+        buttonGroup1.add(btnClosed);
+        btnClosed.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnClosed.setText("Closed");
+        btnClosed.setFocusPainted(false);
+        btnClosed.setOpaque(true);
+        btnClosed.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                btnInactiveStateChanged(evt);
+                btnClosedStateChanged(evt);
             }
         });
-        btnInactive.setBounds(10, 280, 110, 80);
-        tableBack.add(btnInactive, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        btnClosed.setBounds(10, 280, 110, 80);
+        tableBack.add(btnClosed, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         buttonGroup1.add(btnSeated);
         btnSeated.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
@@ -373,21 +373,21 @@ public class HostTableSelection extends javax.swing.JFrame {
         if (btnOpen.isSelected())
         {
             btnOpen.setForeground(Color.red);
-            btnInactive.setForeground(Color.gray);
+            btnClosed.setForeground(Color.gray);
             btnSeated.setForeground(Color.gray);
             defAction = "open";
         }
 }//GEN-LAST:event_btnOpenStateChanged
 
-    private void btnInactiveStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnInactiveStateChanged
-        if (btnInactive.isSelected())
+    private void btnClosedStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnClosedStateChanged
+        if (btnClosed.isSelected())
         {
             btnOpen.setForeground(Color.gray);
-            btnInactive.setForeground(Color.red);
+            btnClosed.setForeground(Color.red);
             btnSeated.setForeground(Color.gray);
             defAction = "inactive";
         }
-}//GEN-LAST:event_btnInactiveStateChanged
+}//GEN-LAST:event_btnClosedStateChanged
 
     private void btnLogoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseReleased
         Login l = Login.getGUI();
@@ -395,10 +395,10 @@ public class HostTableSelection extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutMouseReleased
 
     private void btnSeatedStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnSeatedStateChanged
-        if (btnInactive.isSelected())
+        if (btnClosed.isSelected())
         {
             btnOpen.setForeground(Color.gray);
-            btnInactive.setForeground(Color.gray);
+            btnClosed.setForeground(Color.gray);
             btnSeated.setForeground(Color.red);
             defAction = "inactive";
         }
@@ -416,11 +416,11 @@ public class HostTableSelection extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnClosed;
     private javax.swing.JButton btnFloor1;
     private javax.swing.JButton btnFloor2;
     private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnHome;
-    private javax.swing.JToggleButton btnInactive;
     private javax.swing.JButton btnLogout;
     private javax.swing.JToggleButton btnOpen;
     private javax.swing.JToggleButton btnSeated;
