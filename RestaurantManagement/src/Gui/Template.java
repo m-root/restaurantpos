@@ -17,6 +17,7 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import loginGUI.Login;
 import persistence.TableBroker;
 
 /**
@@ -49,8 +50,8 @@ public class Template extends javax.swing.JFrame {
         if (t==null)
         {
             t=new Template();
-            t.setVisible(true);
         }
+        t.setVisible(true);
 
         return t;
     }
@@ -90,9 +91,14 @@ public class Template extends javax.swing.JFrame {
         vSep.setBounds(130, 80, 50, 740);
         tableBack.add(vSep, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22));
+        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.setFocusable(false);
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseReleased(evt);
+            }
+        });
 
         btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/home.png"))); // NOI18N
         btnHome.setFocusable(false);
@@ -176,6 +182,11 @@ public class Template extends javax.swing.JFrame {
             gs.setFullScreenWindow(null);
         }
     }//GEN-LAST:event_formWindowGainedFocus
+
+    private void btnLogoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseReleased
+        Login l = Login.getGUI();
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutMouseReleased
 
     /**
     * @param args the command line arguments
