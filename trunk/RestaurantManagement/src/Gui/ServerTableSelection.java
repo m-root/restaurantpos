@@ -57,6 +57,15 @@ public class ServerTableSelection extends javax.swing.JFrame {
         {
             t=new ServerTableSelection();
         }
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(t);
+            t.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
         t.setVisible(true);
         return t;
     }
@@ -354,15 +363,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
 }//GEN-LAST:event_btnFloor2MouseReleased
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice gs = ge.getDefaultScreenDevice();
-
-        try {
-            gs.setFullScreenWindow(t);
-            t.validate();
-        } catch(Error e) {
-            gs.setFullScreenWindow(null);
-        }
+        
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void btnOrderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnOrderStateChanged
