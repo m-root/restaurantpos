@@ -94,9 +94,9 @@ public class Menu extends javax.swing.JFrame {
     //20 19 18 17
 
     public void setBase(){
-        /*Category c = (Category)CategoryBroker.getBroker().get(0);
-        getSub(c);*/
-        Category c = new Category();
+        Category c = (Category)CategoryBroker.getBroker().get(0);
+        getSub(c);
+        /*Category c = new Category();
         ArrayList <Categorizable> sub = new ArrayList();
         ArrayList <Categorizable> sub2 = new ArrayList();
         Category c2 = new Category();
@@ -112,7 +112,7 @@ public class Menu extends javax.swing.JFrame {
         sub.add(i2);
         c.setSubs(sub);
 
-        getSub(c);
+        getSub(c);*/
 
         cat = c;
     }
@@ -938,6 +938,7 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if(b1id.getType()==Categorizable.TYPE_CATEGORY){
+            System.out.println(b1id.getName());
             getSub((Category)b1id);
             cat = (Category)b1id;
         }else{
