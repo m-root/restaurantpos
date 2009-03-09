@@ -50,20 +50,20 @@ public class OrderGUI extends javax.swing.JFrame {
         if (t==null)
         {
             t=new OrderGUI();
-
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice gs = ge.getDefaultScreenDevice();
-
-            try {
-                gs.setFullScreenWindow(t);
-                t.validate();
-            } catch(Error e) {
-                gs.setFullScreenWindow(null);
-            }
-
-            t.setVisible(true);
         }
 
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(t);
+            t.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
+
+        t.setVisible(true);
+        
         return t;
     }
 

@@ -82,7 +82,7 @@
                           <Component id="btnHome" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           <Component id="lblTitle" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="172" max="32767" attributes="0"/>
+                          <EmptySpace pref="174" max="32767" attributes="0"/>
                           <Component id="btnUp" min="-2" pref="58" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnLogout" min="-2" pref="110" max="-2" attributes="0"/>
