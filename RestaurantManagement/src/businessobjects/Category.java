@@ -17,6 +17,7 @@ public class Category extends Categorizable{
     private Category parent;
     private ArrayList<Categorizable> sub;
     private int type = Categorizable.TYPE_CATEGORY;
+
     public Category() {
     }
 
