@@ -52,6 +52,15 @@ public class Review extends javax.swing.JFrame {
         {
             t=new Review();
         }
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(t);
+            t.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
         t.setVisible(true);
 
         return t;
@@ -340,15 +349,7 @@ public class Review extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLogoutMouseReleased
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice gs = ge.getDefaultScreenDevice();
-
-        try {
-            gs.setFullScreenWindow(t);
-            t.validate();
-        } catch(Error e) {
-            gs.setFullScreenWindow(null);
-        }
+        
     }//GEN-LAST:event_formWindowGainedFocus
 
     /**
