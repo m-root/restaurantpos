@@ -97,6 +97,8 @@ public class Menu extends javax.swing.JFrame {
     public void setBase(){
         Category c = (Category)CategoryBroker.getBroker().get(1);
         getSub(c);
+
+
         /*Category c = new Category();
         ArrayList <Categorizable> sub = new ArrayList();
         ArrayList <Categorizable> sub2 = new ArrayList();
@@ -120,6 +122,11 @@ public class Menu extends javax.swing.JFrame {
 
 
     public void getSub(Category cat){
+
+        /*System.out.println(cat.getName()+":");
+        for(int i=0;i<cat.getSubs().size();i++){
+            System.out.println(cat.getSubs().get(i).getName()+" has parent "+cat.getSubs().get(i).getParent().getName());
+        }*/
 
         jButton4.setText("");
         jButton6.setText("");
@@ -365,7 +372,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(btnHome)
                 .addGap(37, 37, 37)
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
                 .addComponent(btnUp, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -397,9 +404,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton4.setBackground(new java.awt.Color(205, 205, 205));
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton4.setText("MMMMMMMMM");
+        jButton4.setBackground(new java.awt.Color(0, 0, 51));
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -425,9 +431,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton6.setBackground(new java.awt.Color(205, 205, 205));
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton6.setText("MMMMMMMMM");
+        jButton6.setBackground(new java.awt.Color(0, 0, 51));
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -453,9 +458,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel7.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton7.setBackground(new java.awt.Color(205, 205, 205));
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton7.setText("MMMMMMMMM");
+        jButton7.setBackground(new java.awt.Color(0, 0, 51));
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -481,9 +485,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel8.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton8.setBackground(new java.awt.Color(205, 205, 205));
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton8.setText("MMMMMMMMM");
+        jButton8.setBackground(new java.awt.Color(0, 0, 51));
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -509,9 +512,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton9.setBackground(new java.awt.Color(205, 205, 205));
+        jButton9.setBackground(new java.awt.Color(0, 0, 51));
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton9.setText("MMMMMMMMM");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -537,9 +539,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel10.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton10.setBackground(new java.awt.Color(205, 205, 205));
+        jButton10.setBackground(new java.awt.Color(0, 0, 51));
         jButton10.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton10.setText("MMMMMMMMM");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -565,9 +566,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel11.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton11.setBackground(new java.awt.Color(205, 205, 205));
+        jButton11.setBackground(new java.awt.Color(0, 0, 51));
         jButton11.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton11.setText("MMMMMMMMM");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -593,9 +593,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel12.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton12.setBackground(new java.awt.Color(205, 205, 205));
+        jButton12.setBackground(new java.awt.Color(0, 0, 51));
         jButton12.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton12.setText("MMMMMMMMM");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -621,9 +620,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel13.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton13.setBackground(new java.awt.Color(205, 205, 205));
+        jButton13.setBackground(new java.awt.Color(0, 0, 51));
         jButton13.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton13.setText("MMMMMMMMM");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
@@ -649,9 +647,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel14.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton14.setBackground(new java.awt.Color(205, 205, 205));
+        jButton14.setBackground(new java.awt.Color(0, 0, 51));
         jButton14.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton14.setText("MMMMMMMMM");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
@@ -677,9 +674,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel15.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton15.setBackground(new java.awt.Color(205, 205, 205));
-        jButton15.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton15.setText("MMMMMMMMM");
+        jButton15.setBackground(new java.awt.Color(0, 0, 51));
+        jButton15.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton15ActionPerformed(evt);
@@ -705,9 +701,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel16.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton16.setBackground(new java.awt.Color(205, 205, 205));
+        jButton16.setBackground(new java.awt.Color(0, 0, 51));
         jButton16.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton16.setText("MMMMMMMMM");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton16ActionPerformed(evt);
@@ -733,9 +728,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel17.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton17.setBackground(new java.awt.Color(205, 205, 205));
+        jButton17.setBackground(new java.awt.Color(0, 0, 51));
         jButton17.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton17.setText("MMMMMMMMM");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton17ActionPerformed(evt);
@@ -761,9 +755,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel18.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton18.setBackground(new java.awt.Color(205, 205, 205));
+        jButton18.setBackground(new java.awt.Color(0, 0, 51));
         jButton18.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton18.setText("MMMMMMMMM");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton18ActionPerformed(evt);
@@ -789,9 +782,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel19.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton19.setBackground(new java.awt.Color(205, 205, 205));
+        jButton19.setBackground(new java.awt.Color(0, 0, 51));
         jButton19.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton19.setText("MMMMMMMMM");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton19ActionPerformed(evt);
@@ -817,9 +809,8 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel20.setBackground(new java.awt.Color(0, 0, 51));
 
-        jButton20.setBackground(new java.awt.Color(205, 205, 205));
+        jButton20.setBackground(new java.awt.Color(0, 0, 51));
         jButton20.setFont(new java.awt.Font("Tahoma", 0, 22));
-        jButton20.setText("MMMMMMMMM");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton20ActionPerformed(evt);
@@ -1091,8 +1082,10 @@ public class Menu extends javax.swing.JFrame {
         
         try {
             if(cat.getParent()!=null){
-            System.out.println("get sup to parent: "+cat.getParent().getName());
-                getSub(cat.getParent());
+                System.out.println(cat.getName()+" is sup to parent: "+cat.getParent().getName());
+                Category temp = cat;
+                cat = cat.getParent();
+                getSub(temp.getParent());
             }
         } catch (Exception e) {
         }
