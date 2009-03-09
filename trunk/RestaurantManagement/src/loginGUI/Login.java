@@ -461,6 +461,11 @@ public class Login extends javax.swing.JFrame {
                     ServerTableSelection sts = ServerTableSelection.getGUI();
                     sts.setCurrEmp(emp);
                     this.dispose();
+                }else if(role == 'H')
+                {
+                    HostTableSelection sts = HostTableSelection.getGUI();
+                    sts.setCurrEmp(emp);
+                    this.dispose();
                 }
             }
             else
