@@ -24,7 +24,7 @@ public class ItemDB {
     public void setConnection(){
      try {
 			Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant","root","password");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant","root","");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -156,7 +156,7 @@ public class ItemDB {
                 item = new Item(results.getInt("itemID"), results.getDouble("price"),
                                     null, results.getString("name"), results.getDouble("cost"));
                 CategoryBroker cb = CategoryBroker.getBroker();
-                item.setParent((Category)cb.get(results.getInt("categoryId")));
+                //item.setParent((Category)cb.get(results.getInt("categoryId")));
             }
 
             return item;
