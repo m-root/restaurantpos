@@ -19,6 +19,7 @@ public class Order {
     private boolean paid;
     private double paymentAmount;
     private ArrayList<Item> items;
+    private ArrayList<Payment> payments;
 
     public Order() {
     }
