@@ -85,15 +85,7 @@ public class OrderItemDB {
      * @return Returns true if the objects are saved and false if they are not saved
      */
     public boolean saveAll(ArrayList ar){
-        try {
-            if (ar.size()>0)
-            {
-                stmt = con.createStatement();
-                stmt.execute("DELETE * FROM OrderItem;");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(OrderItemDB.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
 
         for(int i = 0; i < ar.size(); i++){
             try {
