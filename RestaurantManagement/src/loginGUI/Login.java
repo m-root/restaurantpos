@@ -55,6 +55,15 @@ public class Login extends javax.swing.JFrame {
         {
             t=new Login();
         }
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(t);
+            t.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
         t.setVisible(true);
         return t;
     }
@@ -384,15 +393,7 @@ public class Login extends javax.swing.JFrame {
 }//GEN-LAST:event_jButton13ActionPerformed
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        GraphicsDevice gs = ge.getDefaultScreenDevice();
-
-        try {
-            gs.setFullScreenWindow(t);
-            t.validate();
-        } catch(Error e) {
-            gs.setFullScreenWindow(null);
-        }
+        
     }//GEN-LAST:event_formWindowGainedFocus
 
         private void add(int num)
