@@ -71,18 +71,8 @@ public class Menu extends javax.swing.JFrame {
         if (t==null)
         {
             t=new Menu();
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice gs = ge.getDefaultScreenDevice();
-
-            try {
-                gs.setFullScreenWindow(t);
-                t.validate();
-            } catch(Error e) {
-                gs.setFullScreenWindow(null);
-            }
-
-            t.setVisible(true);
         }
+        t.setVisible(true);
 
         return t;
     }
@@ -328,6 +318,13 @@ public class Menu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -338,6 +335,11 @@ public class Menu extends javax.swing.JFrame {
         btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
         btnLogout.setText("Logout");
         btnLogout.setFocusable(false);
+        btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                btnLogoutMouseReleased(evt);
+            }
+        });
 
         btnHome.setFocusable(false);
 
@@ -359,7 +361,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(btnHome)
                 .addGap(37, 37, 37)
                 .addComponent(lblTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 251, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
                 .addComponent(btnUp, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -392,7 +394,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton4.setBackground(new java.awt.Color(205, 205, 205));
-        jButton4.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton4.setText("MMMMMMMMM");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -420,7 +422,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton6.setBackground(new java.awt.Color(205, 205, 205));
-        jButton6.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton6.setText("MMMMMMMMM");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -448,7 +450,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel7.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton7.setBackground(new java.awt.Color(205, 205, 205));
-        jButton7.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton7.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton7.setText("MMMMMMMMM");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -476,7 +478,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel8.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton8.setBackground(new java.awt.Color(205, 205, 205));
-        jButton8.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton8.setText("MMMMMMMMM");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -504,7 +506,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton9.setBackground(new java.awt.Color(205, 205, 205));
-        jButton9.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton9.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton9.setText("MMMMMMMMM");
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -532,7 +534,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel10.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton10.setBackground(new java.awt.Color(205, 205, 205));
-        jButton10.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton10.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton10.setText("MMMMMMMMM");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -560,7 +562,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel11.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton11.setBackground(new java.awt.Color(205, 205, 205));
-        jButton11.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton11.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton11.setText("MMMMMMMMM");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -588,7 +590,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel12.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton12.setBackground(new java.awt.Color(205, 205, 205));
-        jButton12.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton12.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton12.setText("MMMMMMMMM");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -616,7 +618,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel13.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton13.setBackground(new java.awt.Color(205, 205, 205));
-        jButton13.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton13.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton13.setText("MMMMMMMMM");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -644,7 +646,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel14.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton14.setBackground(new java.awt.Color(205, 205, 205));
-        jButton14.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton14.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton14.setText("MMMMMMMMM");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -672,7 +674,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel15.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton15.setBackground(new java.awt.Color(205, 205, 205));
-        jButton15.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton15.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton15.setText("MMMMMMMMM");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -700,7 +702,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel16.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton16.setBackground(new java.awt.Color(205, 205, 205));
-        jButton16.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton16.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton16.setText("MMMMMMMMM");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -728,7 +730,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel17.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton17.setBackground(new java.awt.Color(205, 205, 205));
-        jButton17.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton17.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton17.setText("MMMMMMMMM");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -756,7 +758,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel18.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton18.setBackground(new java.awt.Color(205, 205, 205));
-        jButton18.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton18.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton18.setText("MMMMMMMMM");
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -784,7 +786,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel19.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton19.setBackground(new java.awt.Color(205, 205, 205));
-        jButton19.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton19.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton19.setText("MMMMMMMMM");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -812,7 +814,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel20.setBackground(new java.awt.Color(0, 0, 51));
 
         jButton20.setBackground(new java.awt.Color(205, 205, 205));
-        jButton20.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        jButton20.setFont(new java.awt.Font("Tahoma", 0, 22));
         jButton20.setText("MMMMMMMMM");
         jButton20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1088,6 +1090,23 @@ public class Menu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnUpActionPerformed
 
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(t);
+            t.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
+
+    private void btnLogoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseReleased
+        Login l = Login.getGUI();
+        this.dispose();
+    }//GEN-LAST:event_btnLogoutMouseReleased
+
     /**
     * @param args the command line arguments
     */
@@ -1120,7 +1139,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
@@ -1140,7 +1158,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
