@@ -52,15 +52,15 @@ public class Login extends javax.swing.JFrame {
         {
             t=new Login();
 
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+            /*GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             GraphicsDevice gs = ge.getDefaultScreenDevice();
 
             try {
-                gs.setFullScreenWindow(t);
-                t.validate();
+            gs.setFullScreenWindow(t);
+            t.validate();
             } catch(Error e) {
-                gs.setFullScreenWindow(null);
-            }
+            gs.setFullScreenWindow(null);
+            }*/
 
             t.setVisible(true);
         }
@@ -99,6 +99,13 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -109,7 +116,7 @@ public class Login extends javax.swing.JFrame {
         btnHelp.setBounds(40, 720, 50, 50);
         tableBack.add(btnHelp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 30));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Login");
 
@@ -385,6 +392,18 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setText(pin);
 }//GEN-LAST:event_jButton13ActionPerformed
 
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(t);
+            t.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
+
         private void add(int num)
     {
         a.add(num);
@@ -443,31 +462,36 @@ public class Login extends javax.swing.JFrame {
     
     public void login()
     {
-        EmployeeBroker eb = EmployeeBroker.getBroker();
-        String id = pin;
-        int idNum = Integer.parseInt(id);
-        if(eb.get(idNum)!=null)
+        if (pin.trim().isEmpty()==false)
         {
-            Employee emp = (Employee)eb.get(idNum);
-            char role = emp.getRole();
-
-            TimeStampBroker tsb = TimeStampBroker.getBroker();
-            //tsb.save(emp);
-
-            if(role == 'S')
+            EmployeeBroker eb = EmployeeBroker.getBroker();
+            String id = pin;
+            int idNum = Integer.parseInt(id);
+            if(eb.get(idNum)!=null)
             {
-                ServerTableSelection sts = ServerTableSelection.getGUI();
-                sts.setCurrEmp(emp);
+                Employee emp = (Employee)eb.get(idNum);
+                char role = emp.getRole();
+
+                TimeStampBroker tsb = TimeStampBroker.getBroker();
+                //tsb.save(emp);
+
+                if(role == 'S')
+                {
+                    ServerTableSelection sts = ServerTableSelection.getGUI();
+                    sts.setCurrEmp(emp);
+                }
+
+            }
+            else
+            {
+                JOptionPane.showInternalMessageDialog(this.getContentPane(), "Not a valid id");
             }
 
-        }
-        else
+            a = new ArrayList();
+            pin = "";
+        } else
         {
-            System.out.println("return: " + eb.get(idNum));
-            JOptionPane.showInternalMessageDialog(t, "Not a valid id");
+            JOptionPane.showInternalMessageDialog(this.getContentPane(), "Not a valid id");
         }
-
-        a = new ArrayList();
-        pin = "";
-    }
+    } 
 }
