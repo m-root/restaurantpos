@@ -206,7 +206,7 @@ public class CalendarEdit extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Shift sf = new Shift(tk.getNextID(),date,avalibleEmployees.get(jList2.getSelectedIndex()));
+        Shift sf = new Shift(tk.getNextID(),date,null,avalibleEmployees.get(jList2.getSelectedIndex()));
         tk.addShift(sf);
     }//GEN-LAST:event_jButton4ActionPerformed
 
