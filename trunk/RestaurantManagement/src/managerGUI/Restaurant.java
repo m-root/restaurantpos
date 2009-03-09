@@ -123,17 +123,6 @@ public class Restaurant extends javax.swing.JFrame {
         if (r==null)
         {
             r=new Restaurant();
-            
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice gs = ge.getDefaultScreenDevice();
-
-            try {
-                gs.setFullScreenWindow(r);
-                r.validate();
-            } catch(Error e) {
-                gs.setFullScreenWindow(null);
-            }
-
             r.setVisible(true);
         }
 
@@ -207,6 +196,13 @@ public class Restaurant extends javax.swing.JFrame {
         setTitle("Restaurant Configuration");
         setResizable(false);
         setUndecorated(true);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -339,7 +335,7 @@ public class Restaurant extends javax.swing.JFrame {
         btnFloor2.setBounds(70, 660, 50, 50);
         tableBack.add(btnFloor2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        lblFloor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblFloor.setFont(new java.awt.Font("Tahoma", 0, 18));
         lblFloor.setForeground(new java.awt.Color(255, 255, 255));
         lblFloor.setText("Area:");
         lblFloor.setBounds(10, 620, 110, -1);
@@ -625,6 +621,18 @@ public class Restaurant extends javax.swing.JFrame {
             btnFloor1.setRolloverEnabled(true);
         }
     }//GEN-LAST:event_btnFloor2MouseReleased
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(r);
+            r.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
 
 
 

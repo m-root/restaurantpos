@@ -38,6 +38,8 @@ public class ServerTableSelection extends javax.swing.JFrame {
 
     ArrayList compArray = new ArrayList();
 
+    String defAction = "order";
+
     /** Creates new form ServerTableSelection */
     private ServerTableSelection() {
         initComponents();
@@ -45,7 +47,6 @@ public class ServerTableSelection extends javax.swing.JFrame {
         vSep.setBounds(130,80,vSep.getWidth(),jPanel1.getHeight()-80);
         jPanel2.setSize(screenWidth,jPanel2.getHeight());
         btnLogout.setLocation(screenWidth-btnLogout.getWidth()-30, btnLogout.getY());
-        //loadTables();
     }
 
     public static ServerTableSelection getGUI()
@@ -61,7 +62,6 @@ public class ServerTableSelection extends javax.swing.JFrame {
 
     public void loadTables()
     {
-        //TODO: Inactive (Gray), Open/Available (Green), Seated (Yellow), Active (Blue), Bussing (Purple)
         TableBroker tb = TableBroker.getBroker();
         ArrayList load = tb.getAll();
 
@@ -168,6 +168,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         tableBack = new javax.swing.JLayeredPane();
         vSep = new javax.swing.JSeparator();
@@ -179,6 +180,8 @@ public class ServerTableSelection extends javax.swing.JFrame {
         lblFloor = new javax.swing.JLabel();
         btnFloor2 = new javax.swing.JButton();
         btnFloor1 = new javax.swing.JButton();
+        btnOrder = new javax.swing.JToggleButton();
+        btnReview = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -244,7 +247,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
         lblFloor.setFont(new java.awt.Font("Tahoma", 0, 18));
         lblFloor.setForeground(new java.awt.Color(255, 255, 255));
         lblFloor.setText("Area:");
-        lblFloor.setBounds(10, 610, 110, -1);
+        lblFloor.setBounds(10, 610, 110, 22);
         tableBack.add(lblFloor, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         btnFloor2.setFont(new java.awt.Font("Tahoma", 0, 22));
@@ -271,6 +274,33 @@ public class ServerTableSelection extends javax.swing.JFrame {
         });
         btnFloor1.setBounds(10, 650, 50, 50);
         tableBack.add(btnFloor1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        buttonGroup1.add(btnOrder);
+        btnOrder.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnOrder.setForeground(Color.red);
+        btnOrder.setSelected(true);
+        btnOrder.setText("Order");
+        btnOrder.setFocusPainted(false);
+        btnOrder.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                btnOrderStateChanged(evt);
+            }
+        });
+        btnOrder.setBounds(10, 100, 110, 80);
+        tableBack.add(btnOrder, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        buttonGroup1.add(btnReview);
+        btnReview.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnReview.setText("Review");
+        btnReview.setFocusPainted(false);
+        btnReview.setOpaque(true);
+        btnReview.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                btnReviewStateChanged(evt);
+            }
+        });
+        btnReview.setBounds(10, 190, 110, 80);
+        tableBack.add(btnReview, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -329,6 +359,24 @@ public class ServerTableSelection extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formWindowGainedFocus
 
+    private void btnOrderStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnOrderStateChanged
+        if (btnOrder.isSelected())
+        {
+            btnOrder.setForeground(Color.red);
+            btnReview.setForeground(Color.gray);
+            defAction = "order";
+        }
+    }//GEN-LAST:event_btnOrderStateChanged
+
+    private void btnReviewStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_btnReviewStateChanged
+        if (btnReview.isSelected())
+        {
+            btnOrder.setForeground(Color.gray);
+            btnReview.setForeground(Color.red);
+            defAction = "review";
+        }
+    }//GEN-LAST:event_btnReviewStateChanged
+
     /**
     * @param args the command line arguments
     */
@@ -346,6 +394,9 @@ public class ServerTableSelection extends javax.swing.JFrame {
     private javax.swing.JButton btnHelp;
     private javax.swing.JButton btnHome;
     private javax.swing.JButton btnLogout;
+    private javax.swing.JToggleButton btnOrder;
+    private javax.swing.JToggleButton btnReview;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblFloor;
