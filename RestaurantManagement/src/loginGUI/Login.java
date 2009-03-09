@@ -99,13 +99,6 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
-            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
-                formWindowGainedFocus(evt);
-            }
-            public void windowLostFocus(java.awt.event.WindowEvent evt) {
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -391,10 +384,6 @@ public class Login extends javax.swing.JFrame {
         login();
         jPasswordField1.setText(pin);
 }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        
-    }//GEN-LAST:event_formWindowGainedFocus
 
         private void add(int num)
     {

@@ -113,13 +113,6 @@ public class Review extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
-        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
-            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
-                formWindowGainedFocus(evt);
-            }
-            public void windowLostFocus(java.awt.event.WindowEvent evt) {
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -127,7 +120,7 @@ public class Review extends javax.swing.JFrame {
         vSep.setBounds(130, 80, 50, 740);
         tableBack.add(vSep, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22));
         btnLogout.setText("Logout");
         btnLogout.setFocusable(false);
         btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -347,10 +340,6 @@ public class Review extends javax.swing.JFrame {
         Login l = Login.getGUI();
         this.dispose();
     }//GEN-LAST:event_btnLogoutMouseReleased
-
-    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        
-    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
     * @param args the command line arguments
