@@ -21,6 +21,7 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.JButton;
+import loginGUI.Login;
 import persistence.CategoryBroker;
 import persistence.TableBroker;
 import loginGUI.Login;
@@ -94,7 +95,7 @@ public class Menu extends javax.swing.JFrame {
     //20 19 18 17
 
     public void setBase(){
-        Category c = (Category)CategoryBroker.getBroker().get(5);
+        Category c = (Category)CategoryBroker.getBroker().get(1);
         getSub(c);
         /*Category c = new Category();
         ArrayList <Categorizable> sub = new ArrayList();
@@ -944,8 +945,8 @@ public class Menu extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if(b1id.getType()==Categorizable.TYPE_CATEGORY){
             System.out.println(b1id.getName());
-            getSub((Category)b1id);
             cat = (Category)b1id;
+            getSub((Category)b1id);
         }else{
 
         }
@@ -953,8 +954,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         if(b2id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b2id);
             cat = (Category)b2id;
+            getSub((Category)b2id);
         }else{
 
         }
@@ -962,8 +963,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         if(b3id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b3id);
             cat = (Category)b3id;
+            getSub((Category)b3id);
         }else{
 
         }
@@ -971,8 +972,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         if(b4id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b4id);
             cat = (Category)b4id;
+            getSub((Category)b4id);
         }else{
 
         }
@@ -980,8 +981,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         if(b5id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b5id);
             cat = (Category)b5id;
+            getSub((Category)b5id);
         }else{
 
         }
@@ -989,8 +990,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         if(b6id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b6id);
             cat = (Category)b6id;
+            getSub((Category)b6id);
         }else{
 
         }
@@ -998,8 +999,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         if(b7id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b7id);
             cat = (Category)b7id;
+            getSub((Category)b7id);
         }else{
 
         }
@@ -1007,8 +1008,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         if(b8id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b8id);
             cat = (Category)b8id;
+            getSub((Category)b8id);
         }else{
 
         }
@@ -1016,8 +1017,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         if(b9id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b9id);
             cat = (Category)b9id;
+            getSub((Category)b9id);
         }else{
 
         }
@@ -1025,8 +1026,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         if(b10id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b10id);
             cat = (Category)b10id;
+            getSub((Category)b10id);
         }else{
 
         }
@@ -1034,8 +1035,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
         if(b11id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b11id);
             cat = (Category)b11id;
+            getSub((Category)b11id);
         }else{
 
         }
@@ -1043,8 +1044,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         if(b12id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b12id);
             cat = (Category)b12id;
+            getSub((Category)b12id);
         }else{
 
         }
@@ -1052,8 +1053,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
         if(b13id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b13id);
             cat = (Category)b13id;
+            getSub((Category)b13id);
         }else{
 
         }
@@ -1061,8 +1062,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         if(b14id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b14id);
             cat = (Category)b14id;
+            getSub((Category)b14id);
         }else{
 
         }
@@ -1070,8 +1071,8 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         if(b15id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b15id);
             cat = (Category)b15id;
+            getSub((Category)b15id);
         }else{
 
         }
@@ -1079,16 +1080,20 @@ public class Menu extends javax.swing.JFrame {
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         if(b16id.getType()==Categorizable.TYPE_CATEGORY){
-            getSub((Category)b16id);
             cat = (Category)b16id;
+            getSub((Category)b16id);
         }else{
 
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void btnUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpActionPerformed
+        
         try {
-            getSub(cat);
+            if(cat.getParent()!=null){
+            System.out.println("get sup to parent: "+cat.getParent().getName());
+                getSub(cat.getParent());
+            }
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnUpActionPerformed
