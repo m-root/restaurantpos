@@ -16,6 +16,7 @@ public class Shift implements Serializable{
     private static final long serialVersionUID = 9040287304483793247L;
     private int id;
     private Calendar in;
+    private Calendar out;
     private Employee employee;
 
     public Shift() {
