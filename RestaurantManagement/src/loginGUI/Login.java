@@ -19,6 +19,7 @@ import java.awt.GraphicsDevice;
 import java.awt.GraphicsEnvironment;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import persistence.EmployeeBroker;
 import persistence.TableBroker;
@@ -34,6 +35,8 @@ public class Login extends javax.swing.JFrame {
     int screenWidth = (int)dim.getWidth();
     int screenHeight = (int)dim.getHeight();
     static Login t=null;
+    
+
     
     /** Creates new GUI */
     private Login() {
@@ -51,20 +54,8 @@ public class Login extends javax.swing.JFrame {
         if (t==null)
         {
             t=new Login();
-
-            /*GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice gs = ge.getDefaultScreenDevice();
-
-            try {
-            gs.setFullScreenWindow(t);
-            t.validate();
-            } catch(Error e) {
-            gs.setFullScreenWindow(null);
-            }*/
-
-            t.setVisible(true);
         }
-
+        t.setVisible(true);
         return t;
     }
 
@@ -479,18 +470,19 @@ public class Login extends javax.swing.JFrame {
                 {
                     ServerTableSelection sts = ServerTableSelection.getGUI();
                     sts.setCurrEmp(emp);
+                    this.dispose();
                 }
             }
             else
             {
                 JOptionPane.showInternalMessageDialog(this.getContentPane(), "Not a valid id");
-            }
-
-            a = new ArrayList();
-            pin = "";
+            }            
+            
         } else
         {
             JOptionPane.showInternalMessageDialog(this.getContentPane(), "Not a valid id");
         }
+        a = new ArrayList();
+        pin = "";
     } 
 }
