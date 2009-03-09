@@ -26,7 +26,7 @@ public class CategoryDB {
     public void setConnection(){
      try {
 			Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant","root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant","root","password");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
