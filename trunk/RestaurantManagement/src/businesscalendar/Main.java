@@ -35,29 +35,29 @@ public class Main {
 
 
         cl1.set(Calendar.HOUR_OF_DAY, 8);
-        Shift t1 = new Shift(1,cl1,em);
+        Shift t1 = new Shift(1,cl1,null,em);
         tk.addShift(t1);
 
         cl2.set(Calendar.HOUR_OF_DAY, 10);
-        Shift t2 = new Shift(2,cl2,em);
+        Shift t2 = new Shift(2,cl2,null,em);
         tk.addShift(t2);
 
         cl3.set(Calendar.HOUR_OF_DAY, 8);
-        Shift t3 = new Shift(3,cl3,em);
+        Shift t3 = new Shift(3,cl3,null,em);
         tk.addShift(t3);
 
         cl4.set(Calendar.DAY_OF_MONTH, 19);
         cl5.set(Calendar.DAY_OF_MONTH, 19);
         cl6.set(Calendar.DAY_OF_MONTH, 22);
-        Shift t4 = new Shift(4,cl4,em);
+        Shift t4 = new Shift(4,cl4,null,em);
         tk.addShift(t4);
 
         cl5.set(Calendar.HOUR_OF_DAY, 15);
-        Shift t5 = new Shift(5,cl5,em);
+        Shift t5 = new Shift(5,cl5,null,em);
         tk.addShift(t5);
 
         cl6.set(Calendar.HOUR_OF_DAY, 8);
-        Shift t6 = new Shift(6,cl6,em);
+        Shift t6 = new Shift(6,cl6,null,em);
         tk.addShift(t6);
         
         
