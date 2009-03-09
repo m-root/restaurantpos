@@ -158,7 +158,7 @@ public class EmployeeDB {
      */
     public Employee get(int number){
         try {
-            Employee employee = new Employee();
+            Employee employee = null;
 
 
             stmt = con.createStatement();
@@ -182,7 +182,7 @@ public class EmployeeDB {
      */
     public ArrayList getAll(){
         try {
-            Employee employee = new Employee();
+            Employee employee = null;
             ArrayList<Employee> ar = new ArrayList<Employee>();
             stmt = con.createStatement();
             String query = "SELECT * FROM Employee;";

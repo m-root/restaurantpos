@@ -45,7 +45,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
         vSep.setBounds(130,80,vSep.getWidth(),jPanel1.getHeight()-80);
         jPanel2.setSize(screenWidth,jPanel2.getHeight());
         btnLogout.setLocation(screenWidth-btnLogout.getWidth()-30, btnLogout.getY());
-        loadTables();
+        //loadTables();
     }
 
     public static ServerTableSelection getGUI()
@@ -53,17 +53,6 @@ public class ServerTableSelection extends javax.swing.JFrame {
         if (t==null)
         {
             t=new ServerTableSelection();
-
-            GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            GraphicsDevice gs = ge.getDefaultScreenDevice();
-
-            try {
-                gs.setFullScreenWindow(t);
-                t.validate();
-            } catch(Error e) {
-                gs.setFullScreenWindow(null);
-            }
-
             t.setVisible(true);
         }
 
@@ -94,7 +83,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
 
                 if (curr.getType()=='T')
                 {
-                    if (curr.getServer().getNumber()==currEmp.getNumber())
+                    if (curr.getServer()!=null&&curr.getServer().getNumber()==currEmp.getNumber())
                     {
                         tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/table.png")));
                     } else {
@@ -103,7 +92,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
                 tempObj.setToolTipText("Table");
                 } else if (curr.getType()=='B')
                 {
-                    if (curr.getServer().getNumber()==currEmp.getNumber())
+                    if (curr.getServer()!=null&&curr.getServer().getNumber()==currEmp.getNumber())
                     {
                         tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/booth.png")));
                     } else {
@@ -112,7 +101,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
                 tempObj.setToolTipText("Booth");
                 } else if (curr.getType()=='R')
                 {
-                    if (curr.getServer().getNumber()==currEmp.getNumber())
+                    if (curr.getServer()!=null&&curr.getServer().getNumber()==currEmp.getNumber())
                     {
                         tempObj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/bar.png"))); // NOI18N
                     } else {
@@ -191,8 +180,15 @@ public class ServerTableSelection extends javax.swing.JFrame {
         btnFloor2 = new javax.swing.JButton();
         btnFloor1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -245,7 +241,7 @@ public class ServerTableSelection extends javax.swing.JFrame {
         btnHelp.setBounds(40, 720, 50, 50);
         tableBack.add(btnHelp, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        lblFloor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblFloor.setFont(new java.awt.Font("Tahoma", 0, 18));
         lblFloor.setForeground(new java.awt.Color(255, 255, 255));
         lblFloor.setText("Area:");
         lblFloor.setBounds(10, 610, 110, -1);
@@ -320,6 +316,18 @@ public class ServerTableSelection extends javax.swing.JFrame {
             btnFloor1.setRolloverEnabled(true);
         }
 }//GEN-LAST:event_btnFloor2MouseReleased
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gs = ge.getDefaultScreenDevice();
+
+        try {
+            gs.setFullScreenWindow(t);
+            t.validate();
+        } catch(Error e) {
+            gs.setFullScreenWindow(null);
+        }
+    }//GEN-LAST:event_formWindowGainedFocus
 
     /**
     * @param args the command line arguments
