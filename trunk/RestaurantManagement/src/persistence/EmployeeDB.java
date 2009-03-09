@@ -219,6 +219,30 @@ public class EmployeeDB {
 
     }
 
+    public boolean clockOut(int number){
+        try {
+            CallableStatement stat = con.prepareCall("call spClockOut(?);");
+            stat.setInt(1, number);
+            stat.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeDB.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
+    public boolean clockIn(int number){
+        try {
+            CallableStatement stat = con.prepareCall("call spClockIn(?);");
+            stat.setInt(1, number);
+            stat.execute();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(EmployeeDB.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
     
 
 
