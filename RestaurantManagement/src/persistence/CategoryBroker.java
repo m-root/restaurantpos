@@ -33,7 +33,7 @@ public class CategoryBroker implements Broker
 
     public Object get(int id)
     {
-        return categoryDB.get3(id);
+        return categoryDB.get(id);
     }
 
     public ArrayList getAll()
