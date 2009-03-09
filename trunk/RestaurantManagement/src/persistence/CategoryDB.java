@@ -222,94 +222,61 @@ public class CategoryDB {
         }
         return true;
     }
-    /**
-     * This method takes in a Category ID number and returns the category from the database
-     * @param Requires a CategoryID number (int)
-     * @return returns a Category Object
-     */
+
     public Category get(int number){
         try {
-            /*Category category = new Category();
+
+        Category category = new Category();
 
 
             stmt = con.createStatement();
             String query = "SELECT * FROM Category WHERE '" + number + "' = categoryId;";
             results = stmt.executeQuery(query);
 
-            while(results.next()){
-
-                category = new Category(results.getInt("categoryID"), results.getString("name"),null,null);
-                if(results.getInt("parent") != 0)
-                {
-                    category.setParent(get(results.getInt("parent")));
-                }
-                query = "SELECT * FROM category WHERE '" + results.getInt("categoryId") + "' = parent;";
-                results2 = stmt.executeQuery(query);
-                ArrayList<Categorizable> ar = new ArrayList<Categorizable>();
-                CategoryBroker cb = CategoryBroker.getBroker();
+            results.next();
+            category = new Category(results.getInt("categoryID"), results.getString("name"),null,null);
+            
+            CategoryBroker cb = CategoryBroker.getBroker();
+            /*if(results.getInt("parent") != 0)
+            {
+                category.setParent((Category) cb.get(category.getParent().getId()));
+            }*/
+            
+            ArrayList<Categorizable> ar = new ArrayList<Categorizable>();
+            ItemBroker ib = ItemBroker.getBroker();
+            query = "SELECT * FROM Category WHERE '" + number + "' = parent;";
+            results2 = stmt.executeQuery(query);
+            try {
                 while(results2.next())
                 {
-                    Categorizable item = (Categorizable) cb.get(results2.getInt("categoryId"));
+                    CategoryDB cdb = new CategoryDB();
+                    Categorizable item = cdb.get(results2.getInt("categoryId"));
+                    item.setParent(category);
                     ar.add(item);
                 }
-                query = "SELECT * FROM items WHERE '" + results.getInt("categoryId") + "' = categoryId;";
-                results2 = stmt.executeQuery(query);
-                ItemBroker ib = ItemBroker.getBroker();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            query = "SELECT * FROM Item WHERE '" + number + "' = categoryId;";
+            results3 = stmt.executeQuery(query);
+            try {
                 while(results3.next())
                 {
                     Categorizable item = (Categorizable) ib.get(results3.getInt("itemId"));
+                    item.setParent(category);
                     ar.add(item);
                 }
-                if(ar.size() != 0)
-                {
-                    category.setSubs(ar);
-                }
-            }*/
-
-            Category category = new Category();
-
-
-            stmt = con.createStatement();
-            String query = "SELECT * FROM Category WHERE '" + number + "' = categoryId;";
-            results = stmt.executeQuery(query);
-
-            while(results.next()){
-
-
-            category = new Category(results.getInt("categoryID"), results.getString("name"),null,null);
-
-            if(results.getInt("parent") != 0)
-            {
-                category.setParent(get(category.getParent().getId()));
-            }
-
-            ArrayList<Categorizable> ar = new ArrayList<Categorizable>();
-            CategoryBroker cb = CategoryBroker.getBroker();
-            ItemBroker ib = ItemBroker.getBroker();
-            query = "SELECT * FROM Category WHERE '" + number + "' = parent;";
-            results = stmt.executeQuery(query);
-            while(results.next())
-            {
-                Categorizable item = (Categorizable) cb.get(results.getInt("categoryId"));
-                ar.add(item);
-            }
-            query = "SELECT * FROM Items WHERE '" + number + "' = categoryId;";
-            results = stmt.executeQuery(query);
-            while(results.next())
-            {
-                Categorizable item = (Categorizable) ib.get(results.getInt("itemId"));
-                ar.add(item);
+            } catch (Exception ex) {
             }
             category.setSubs(ar);
 
             return category;
-            }
-            return null;
         } catch (SQLException ex) {
             Logger.getLogger(CategoryDB.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
     }
+
     /**
      * This method is used to retrieve an arraylist of all categorys in the database
      * @return Returns an arraylist full of all categorys in the database
