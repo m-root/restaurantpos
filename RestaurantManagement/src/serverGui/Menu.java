@@ -94,7 +94,7 @@ public class Menu extends javax.swing.JFrame {
     //20 19 18 17
 
     public void setBase(){
-        Category c = (Category)CategoryBroker.getBroker().get(1);
+        Category c = (Category)CategoryBroker.getBroker().get(5);
         getSub(c);
         /*Category c = new Category();
         ArrayList <Categorizable> sub = new ArrayList();
