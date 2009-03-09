@@ -19,6 +19,8 @@ public class CategoryDB {
     private Connection con;
     public Statement	stmt;
 	public ResultSet	results;
+    public ResultSet	results2;
+    public ResultSet	results3;
 
     /**
      * This method sets the connection to the database
@@ -26,7 +28,7 @@ public class CategoryDB {
     public void setConnection(){
      try {
 			Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant","root","password");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/restaurant","root","");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -227,7 +229,7 @@ public class CategoryDB {
      */
     public Category get(int number){
         try {
-            Category category = new Category();
+            /*Category category = new Category();
 
 
             stmt = con.createStatement();
@@ -235,32 +237,68 @@ public class CategoryDB {
             results = stmt.executeQuery(query);
 
             while(results.next()){
+
                 category = new Category(results.getInt("categoryID"), results.getString("name"),null,null);
                 if(results.getInt("parent") != 0)
                 {
                     category.setParent(get(results.getInt("parent")));
                 }
                 query = "SELECT * FROM category WHERE '" + results.getInt("categoryId") + "' = parent;";
+                results2 = stmt.executeQuery(query);
                 ArrayList<Categorizable> ar = new ArrayList<Categorizable>();
                 CategoryBroker cb = CategoryBroker.getBroker();
-                while(results.next())
+                while(results2.next())
                 {
-                    Categorizable item = (Categorizable) cb.get(results.getInt("categoryId"));
+                    Categorizable item = (Categorizable) cb.get(results2.getInt("categoryId"));
                     ar.add(item);
                 }
                 query = "SELECT * FROM items WHERE '" + results.getInt("categoryId") + "' = categoryId;";
-                
+                results2 = stmt.executeQuery(query);
                 ItemBroker ib = ItemBroker.getBroker();
-                while(results.next())
+                while(results3.next())
                 {
-                    Categorizable item = (Categorizable) ib.get(results.getInt("itemId"));
+                    Categorizable item = (Categorizable) ib.get(results3.getInt("itemId"));
                     ar.add(item);
                 }
                 if(ar.size() != 0)
                 {
                     category.setSubs(ar);
                 }
+            }*/
+
+            Category category = new Category();
+
+
+            stmt = con.createStatement();
+            String query = "SELECT * FROM Category WHERE '" + number + "' = categoryId;";
+            results = stmt.executeQuery(query);
+
+            results.next();
+            category = new Category(results.getInt("categoryID"), results.getString("name"),null,null);
+
+            if(results.getInt("parent") != 0)
+            {
+                category.setParent(get(category.getParent().getId()));
             }
+
+            ArrayList<Categorizable> ar = new ArrayList<Categorizable>();
+            CategoryBroker cb = CategoryBroker.getBroker();
+            ItemBroker ib = ItemBroker.getBroker();
+            query = "SELECT * FROM Category WHERE '" + number + "' = parent;";
+            results = stmt.executeQuery(query);
+            while(results.next())
+            {
+                Categorizable item = (Categorizable) cb.get(results.getInt("categoryId"));
+                ar.add(item);
+            }
+            query = "SELECT * FROM Items WHERE '" + number + "' = categoryId;";
+            results = stmt.executeQuery(query);
+            while(results.next())
+            {
+                Categorizable item = (Categorizable) ib.get(results.getInt("itemId"));
+                ar.add(item);
+            }
+            category.setSubs(ar);
 
             return category;
         } catch (SQLException ex) {
