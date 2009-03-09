@@ -227,13 +227,6 @@ public class TableSelectionBackup extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
-            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
-                formWindowGainedFocus(evt);
-            }
-            public void windowLostFocus(java.awt.event.WindowEvent evt) {
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -241,7 +234,7 @@ public class TableSelectionBackup extends javax.swing.JFrame {
         vSep.setBounds(130, 80, 50, 740);
         tableBack.add(vSep, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22));
         btnLogout.setText("Logout");
         btnLogout.setFocusable(false);
         btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -366,10 +359,6 @@ public class TableSelectionBackup extends javax.swing.JFrame {
             btnFloor1.setRolloverEnabled(true);
         }
 }//GEN-LAST:event_btnFloor2MouseReleased
-
-    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-
-    }//GEN-LAST:event_formWindowGainedFocus
 
     private void btnLogoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseReleased
         Login l = Login.getGUI();

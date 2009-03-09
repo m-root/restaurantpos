@@ -206,13 +206,6 @@ public class Restaurant extends javax.swing.JFrame {
         setTitle("Restaurant Configuration");
         setResizable(false);
         setUndecorated(true);
-        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
-            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
-                formWindowGainedFocus(evt);
-            }
-            public void windowLostFocus(java.awt.event.WindowEvent evt) {
-            }
-        });
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
@@ -273,7 +266,7 @@ public class Restaurant extends javax.swing.JFrame {
         btnSave.setBounds(10, 560, 110, 50);
         tableBack.add(btnSave, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnRevert.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnRevert.setFont(new java.awt.Font("Tahoma", 0, 22));
         btnRevert.setText("Restore");
         btnRevert.setToolTipText("Revert to Last Save");
         btnRevert.setFocusable(false);
@@ -351,7 +344,7 @@ public class Restaurant extends javax.swing.JFrame {
         lblFloor.setBounds(10, 620, 110, -1);
         tableBack.add(lblFloor, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22)); // NOI18N
+        btnLogout.setFont(new java.awt.Font("Tahoma", 0, 22));
         btnLogout.setText("Logout");
         btnLogout.setFocusable(false);
         btnLogout.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -636,10 +629,6 @@ public class Restaurant extends javax.swing.JFrame {
             btnFloor1.setRolloverEnabled(true);
         }
     }//GEN-LAST:event_btnFloor2MouseReleased
-
-    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-
-    }//GEN-LAST:event_formWindowGainedFocus
 
     private void btnLogoutMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLogoutMouseReleased
         Login l = Login.getGUI();
